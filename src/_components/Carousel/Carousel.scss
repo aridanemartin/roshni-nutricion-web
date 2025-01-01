@@ -1,0 +1,67 @@
+@use '@sass/colors.scss' as *;
+
+.carousel {
+  margin-bottom: 3rem;
+  color: $main-color-brown;
+
+  &__slide {
+    display: grid;
+    grid-template-rows: 20% 40% 40%;
+    padding: 1rem;
+    height: 100%;
+
+    &-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    &-image {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h3 {
+      text-align: center;
+      font-size: 1.5rem;
+      text-wrap: balance;
+      font-weight: bold;
+      max-width: 18ch;
+    }
+
+    li {
+      text-align: center;
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+  }
+  .swiper-slide {
+    background-color: $main-color-light;
+    height: 455px;
+
+    border-radius: 1rem;
+    box-shadow: 0.1rem 0.1rem 0.1rem rgba(89, 52, 133, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    img {
+      filter: invert(1);
+      margin: 0 auto;
+      display: block;
+      width: 80%;
+      height: 80%;
+      object-fit: contain;
+      filter: invert(36%) sepia(18%) saturate(816%) hue-rotate(321deg)
+        brightness(100%) contrast(87%);
+    }
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: $main-color-brown;
+  }
+}

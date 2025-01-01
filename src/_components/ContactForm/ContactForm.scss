@@ -1,0 +1,38 @@
+.contact-form {
+  &__button-loader {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  &__button-email-sent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    transition: all 0.3s ease-in-out;
+
+    .check {
+      filter: invert(1);
+    }
+  }
+
+  &__email-error {
+    color: red;
+    margin-top: 0.5rem;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

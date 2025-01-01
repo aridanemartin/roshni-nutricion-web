@@ -1,0 +1,39 @@
+@use '@sass/colors.scss' as *;
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+
+  &__title {
+    color: $main-color;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  &__text {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  ol {
+    margin-left: 2rem;
+    list-style-type: disc;
+
+    li {
+      margin-bottom: 1rem;
+      text-wrap: balance;
+
+      b {
+        font-weight: 700;
+        color: $main-color;
+      }
+    }
+  }
+
+  ::marker {
+    font-size: 1.4rem;
+    color: $main-color;
+  }
+}
