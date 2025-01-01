@@ -1,0 +1,55 @@
+@use '@sass/colors.scss' as *;
+@use '@sass/variables.scss' as *;
+
+.priceCardContainer {
+  display: grid;
+  grid-gap: 1rem;
+  // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: 1fr 1fr;
+
+  padding: 3rem 0;
+}
+
+.noTarifas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 20rem;
+  margin-bottom: 2rem;
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+    color: $main-color;
+    text-align: center;
+    width: fit-content;
+    background: $main-color;
+    padding: 1rem;
+    margin: 2rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    border-radius: 15rem;
+
+    a {
+      color: white;
+    }
+
+    &:hover {
+      box-shadow: $card-box-shadow-hover;
+      transform: translate(0, -2px);
+    }
+  }
+}
+
+@media (width < 768px) {
+  .priceCardContainer {
+    grid-template-columns: 1fr;
+    grid-gap: 3rem;
+  }
+}

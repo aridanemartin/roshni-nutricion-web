@@ -1,0 +1,130 @@
+@use '@sass/colors.scss' as *;
+
+.blogArticlePage {
+  margin-bottom: 10rem;
+
+  &__hero {
+    position: relative;
+    height: 20rem;
+    width: 100vw;
+    overflow: hidden;
+    z-index: -1;
+
+    &-image {
+      filter: brightness(60%);
+    }
+  }
+
+  &__header {
+    position: absolute;
+    width: 80%;
+    max-height: 200px;
+    max-width: 1000px;
+    top: 29rem;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    background-color: white;
+    z-index: 1;
+    padding: 1rem;
+    box-shadow:
+      rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+      rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+    .title {
+      color: $main-color;
+      font-size: 2rem;
+      font-weight: 600;
+      text-align: center;
+      font-size: clamp(1.5rem, 0.6098rem + 1.9512vw, 2rem);
+      margin: 1rem 0;
+
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .subtitle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      gap: 1rem;
+
+      .author {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+
+        &__text {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          margin-right: 0.2rem;
+          .name {
+            font-weight: bold;
+          }
+          .specialty {
+            font-size: 0.8rem;
+          }
+        }
+
+        &__image {
+          position: relative;
+          width: 3rem;
+          height: 3rem;
+          clip-path: circle(50% at 50% 50%);
+        }
+      }
+
+      .timeToRead {
+        font-size: 0.8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__icon {
+          position: relative;
+          width: 0.8rem;
+          height: 0.8rem;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+
+  &__articleSection {
+    padding-bottom: 3rem;
+  }
+
+  &__shareButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.contentWrapper {
+  padding: 1rem;
+  padding-bottom: 3rem;
+}
+
+.contentWrapper section {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1100px) {
+  .blogArticlePage {
+    margin-bottom: 3rem;
+  }
+
+  .blogArticlePage__header {
+    top: calc(29rem - 6rem);
+  }
+}

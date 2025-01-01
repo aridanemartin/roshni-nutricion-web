@@ -1,0 +1,137 @@
+@use '@sass/colors.scss' as *;
+@use '@sass/variables.scss' as *;
+
+.footer {
+  width: 100%;
+  height: fit-content;
+  background: $main-color;
+
+  &__content {
+    max-width: 1440px;
+    margin: 0 auto;
+
+    padding: 1rem;
+    padding-top: 2rem;
+  }
+
+  &__socialIcons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .socialIcon {
+      padding: 0 1rem;
+      transition: all 0.3s ease-in-out;
+      filter: invert(35%) sepia(74%) saturate(207%) hue-rotate(322deg)
+        brightness(94%) contrast(88%);
+
+      svg {
+        max-width: 2.3rem;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          opacity: (0.8);
+        }
+      }
+    }
+
+    #biggerSvg {
+      max-width: 1.9rem;
+      padding-left: 0.2rem;
+      padding-right: 0.2rem;
+    }
+  }
+
+  &__cita {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    color: $main-color-dark;
+
+    &-text {
+      max-width: 45ch;
+      font-size: 1.1rem;
+      line-height: 1.3;
+      text-align: center;
+      text-wrap: balance;
+
+      a {
+        color: white;
+        text-decoration: underline;
+        font-size: 1.2rem;
+      }
+    }
+
+    &-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      text-decoration: none;
+
+      text-align: center;
+      width: fit-content;
+      background: $main-color-dark;
+      padding: 1rem 2rem;
+      margin: 2rem 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease-in-out;
+      text-transform: uppercase;
+      border-radius: 15rem;
+
+      a {
+        color: white;
+      }
+
+      &:hover {
+        box-shadow: $card-box-shadow-hover;
+        transform: translate(0, -2px);
+      }
+    }
+  }
+
+  &__legal {
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+
+    a {
+      color: white;
+      font-size: 0.8rem;
+      padding: 1rem;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .footer {
+    &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 0rem;
+    }
+
+    &__links {
+      display: none;
+    }
+
+    &__cita {
+      margin-bottom: 0rem;
+    }
+
+    &__legal {
+      flex-direction: column;
+      justify-content: center;
+
+      a:last-child {
+        padding-bottom: 3rem;
+      }
+    }
+  }
+}

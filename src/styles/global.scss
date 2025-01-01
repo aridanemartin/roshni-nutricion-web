@@ -1,0 +1,66 @@
+@use '@sass/_index.scss';
+@use '@sass/colors.scss' as *;
+@use '@sass/fonts.scss' as *;
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  /* scroll bar */
+  &::-webkit-scrollbar {
+    width: 12px;
+    border: 1px solid #cacaca;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $main-color;
+    border: 1px solid #cacaca;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: $main-color-dark;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $playfairDisplay;
+}
+
+p {
+  font-family: $sourceSans;
+  line-height: 22px;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: $sourceSans;
+}
+
+.main-layout {
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+@media (max-width: 1280px) {
+  .main-layout {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-layout {
+    padding: 0 1rem;
+  }
+}
+
+b {
+  font-weight: 700;
+  color: $main-color;
+}

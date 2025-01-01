@@ -1,0 +1,47 @@
+@use '@sass/colors.scss' as *;
+
+.socialIcons {
+  display: flex;
+  flex-direction: row;
+  &__icon {
+    padding: 0 0.7rem;
+
+    svg {
+      max-width: 2.3rem;
+      transition: all 0.3s ease-in-out;
+      filter: invert(1);
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  #biggerSvg {
+    max-width: 1.9rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .socialIcons {
+    &__icon {
+      padding: 0.5rem;
+
+      svg {
+        fill: white;
+      }
+    }
+  }
+}
+
+@media (width < 1100px) {
+  .socialIcons {
+    &__icon {
+      svg {
+        filter: none;
+      }
+    }
+  }
+}

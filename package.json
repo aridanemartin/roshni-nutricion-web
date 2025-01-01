@@ -1,0 +1,52 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next",
+    "format": "npx prettier --write . --ignore-path .gitignore",
+    "lint": "next lint -- --ignore-path .gitignore",
+    "lint:fix": "npm run format && npm run lint -- --fix",
+    "start": "next start",
+    "type-check": "tsc --noEmit",
+    "email": "email dev --dir src/_emails"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "dependencies": {
+    "@portabletext/react": "3.0.4",
+    "@react-email/components": "^0.0.11",
+    "@react-email/render": "0.0.9-canary.2",
+    "@sanity/client": "6.4.7",
+    "@sanity/demo": "1.0.2",
+    "@sanity/vision": "3.15.1",
+    "next": "^14.0.4",
+    "next-sanity": "5.4.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-email": "1.10.0",
+    "react-share": "^5.0.3",
+    "resend": "^2.0.0",
+    "sanity": "3.15.1",
+    "sanity-plugin-iframe-pane": "2.5.5",
+    "sass": "^1.69.4",
+    "styled-components": "5.3.11",
+    "swiper": "^11.1.4"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.20",
+    "autoprefixer": "10.4.15",
+    "eslint": "8.47.0",
+    "eslint-config-next": "13.4.17",
+    "eslint-plugin-simple-import-sort": "10.0.0",
+    "postcss": "8.4.28",
+    "prettier": "3.0.2",
+    "prettier-plugin-packagejson": "2.4.5",
+    "prettier-plugin-tailwindcss": "0.5.3",
+    "typescript": "5.1.6"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

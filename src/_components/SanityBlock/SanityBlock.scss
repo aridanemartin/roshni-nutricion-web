@@ -1,0 +1,87 @@
+.sanityBlock {
+  &__h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+  }
+
+  &__h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  &__h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  &__h4 &__h5 &__h6 {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  &__paragraph {
+    font-size: 19px;
+
+    strong {
+      font-weight: 700;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    padding: 1px 0px 0px;
+    box-shadow: #243648 0px -2px 0px inset;
+    background: 0px 0px;
+    transition: box-shadow 0.2s ease 0s;
+
+    &:hover {
+      color: white;
+      box-shadow: #37536e99 0px -1.3em 0px inset;
+    }
+  }
+
+  &__imageBlock {
+    &Horizontal {
+      position: relative;
+      width: 100%;
+      height: 20rem;
+    }
+
+    &Vertical {
+      position: relative;
+      width: 100%;
+      height: 60rem;
+    }
+  }
+
+  &__videoBlock {
+    position: relative;
+    width: 100%;
+    height: 20rem;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__block {
+    padding-top: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .sanityBlock {
+    &__imageBlock {
+      &Vertical {
+        position: relative;
+        width: 100%;
+        height: 30rem;
+      }
+    }
+  }
+}

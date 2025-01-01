@@ -1,0 +1,108 @@
+@use '@sass/colors.scss' as *;
+@use '@sass/variables.scss' as *;
+
+.priceCard {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: $card-box-shadow;
+  padding: 1rem;
+
+  height: 30rem;
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    height: 10rem;
+    width: 5rem;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      filter: invert(30%) sepia(16%) saturate(3034%) hue-rotate(100deg)
+        brightness(93%) contrast(89%);
+      filter: invert(67%) sepia(57%) saturate(517%) hue-rotate(40deg)
+        brightness(90%) contrast(90%);
+    }
+
+    &-discount {
+      img {
+        filter: invert(67%) sepia(92%) saturate(3969%) hue-rotate(5deg)
+          brightness(108%) contrast(104%);
+      }
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $main-color;
+
+    &-discount {
+      color: $orange;
+    }
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: $secondary-green;
+    gap: 0.5rem;
+
+    strong {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__priceBefore {
+    &-line-through {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+  }
+
+  &__duration {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $main-color;
+    opacity: 0.5;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $main-color;
+  }
+
+  &__discountBadge {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $orange;
+    color: white;
+    padding: 0.7rem;
+    border-radius: 0 0 0 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    z-index: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .priceCard {
+    height: fit-content;
+  }
+}
