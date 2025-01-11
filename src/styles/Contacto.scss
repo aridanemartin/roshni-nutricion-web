@@ -60,8 +60,8 @@
   &__image-section {
     position: relative;
     height: 50rem;
-    background-image: url('../_assets/pictures/contacto.webp');
-    background-size: contain;
+    background-image: url('../_assets/pictures/personal/roshniVertical.webp');
+    background-size: cover;
   }
 
   &__image {
@@ -104,7 +104,7 @@
     &__image-section {
       height: 20rem;
       width: 100%;
-      background-image: url('../_assets/pictures/contactoHor.webp');
+      background-image: url('../_assets/pictures/personal/roshniVertical.webp');
       background-position: 0 50%;
       background-size: cover;
     }

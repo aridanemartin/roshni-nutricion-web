@@ -8,19 +8,15 @@ import { LinkedinIcon } from '@components/SocialIcon/LinkedinIcon'
 
 const socialLinks = [
   {
-    href: 'https://www.facebook.com/desiree.acostasantana',
-    icon: <FacebookIcon />,
-  },
-  {
-    href: 'https://www.instagram.com/desiacosta.nutri/',
+    href: 'https://www.instagram.com/roshninutricion/',
     icon: <InstagramIcon />,
   },
   {
-    href: 'https://www.doctoralia.es/desiree-acosta-santana/dietista-nutricionista/las-palmas-de-gran-canaria',
+    href: 'https://www.doctoralia.es/roshni-peswani-peswani/dietista-nutricionista/las-palmas-de-gran-canaria',
     icon: <DoctoraliaIcon />,
   },
   {
-    href: 'https://www.linkedin.com/in/desinutri',
+    href: 'https://www.linkedin.com/in/roshni-peswani-8057604b/?originalSubdomain=es',
     icon: <LinkedinIcon />,
   },
 ]

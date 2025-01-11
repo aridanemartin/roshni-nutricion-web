@@ -8,25 +8,20 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 // images
-import navLogo from '@assets/logos/logoDesiNew.webp'
+import navLogo from '@assets/logos/logoVerdeBlanco.png'
 import { DoctoraliaIcon } from '@components/SocialIcon/DoctoraliaIcon'
 import { InstagramIcon } from '@components/SocialIcon/InstagramIcon'
-import { FacebookIcon } from '@components/SocialIcon/FacebookIcon'
 import { usePathname } from 'next/navigation'
 import { SocialIcons } from '@components/SocialIcons/SocialIcons'
 import { LinkedinIcon } from '@components/SocialIcon/LinkedinIcon'
 
 const socialLinks = [
   {
-    href: 'https://www.facebook.com/desiree.acostasantana',
-    icon: <FacebookIcon />,
-  },
-  {
     href: 'https://www.instagram.com/desiacosta.nutri/',
     icon: <InstagramIcon />,
   },
   {
-    href: 'https://www.doctoralia.es/desiree-acosta-santana/dietista-nutricionista/las-palmas-de-gran-canaria',
+    href: 'https://www.doctoralia.es/roshni-peswani-santana/dietista-nutricionista/las-palmas-de-gran-canaria',
     icon: <DoctoraliaIcon />,
   },
   {
@@ -46,7 +41,7 @@ export default function Nav() {
     !isOpen
 
   const isSecondaryColor =
-    pathname.includes('/desiree-acosta-nutricionista-dietista') ||
+    pathname.includes('/roshni-peswani-nutricionista-dietista') ||
     pathname.includes('/contacto')
 
   return (
@@ -101,7 +96,7 @@ export default function Nav() {
               <li>
                 <Link
                   className={`link ${isSecondaryColor && 'linkSecondary'}`}
-                  href="/desiree-acosta-nutricionista-dietista"
+                  href="/roshni-peswani-nutricionista-dietista"
                   onClick={toggle}
                 >
                   Conóceme

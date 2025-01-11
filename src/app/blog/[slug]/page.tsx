@@ -95,9 +95,9 @@ export default async function Post({ params }: Props) {
             </>
           ))}
         </Layout>
-        <div className="blogArticlePage__shareButton">
+        {/* <div className="blogArticlePage__shareButton">
           <ShareButton />
-        </div>
+        </div> */}
       </article>
     </>
   )

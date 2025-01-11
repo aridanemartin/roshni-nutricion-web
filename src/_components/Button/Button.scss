@@ -5,18 +5,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $main-color-dark;
+  background-color: $main-color;
   color: white;
   font-family: $playfairDisplay;
-  padding: 0.5rem 2rem;
+  padding: 0.6rem 2rem;
   font-size: 1.1rem;
+  line-height: 1.1rem;
   border-radius: 10rem;
-  border: none;
+  border: 1.5px solid transparent;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: $main-color-dark-hover;
+    background-color: $main-color-hover;
   }
 
   &-secondary {
@@ -25,7 +26,7 @@
     color: white;
 
     &:hover {
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.575);
       color: $main-color-dark;
     }
   }

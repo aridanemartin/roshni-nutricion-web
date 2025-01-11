@@ -3,7 +3,7 @@ import { PostPreview } from '@components/PostPreview/PostPreview'
 import Headline from '@components/Headline/Headline'
 import HeroBanner from '@components/HeroBanner/HeroBanner'
 import PictureSection from '@components/PictureSection/PictureSection'
-import DesiProfilePicture from '@assets/pictures/desiProfile.webp'
+import RoshniProfilePicture from '@assets/pictures/personal/roshniProfile.jpg'
 import dynamic from 'next/dynamic'
 import nutritionImage from '@assets/icons/nutrition.png'
 import hormonesImage from '@assets/icons/hormones.png'
@@ -80,18 +80,17 @@ export default async function Home({}: indexProps) {
       />
       <main className="main-layout">
         <PictureSection
-          pictureSrc={DesiProfilePicture}
+          pictureSrc={RoshniProfilePicture}
           picturePosition="left"
           objectPosition="0 35%"
           text={
             <>
-              <h2>¡Bienvenida!</h2>
+              <h2>¡Hola! Soy Roshni</h2>
               <p>
-                Soy <strong>Desirée Acosta</strong>, nutricionista especializada
-                en salud femenina. Mi prioridad es acompañar a mujeres en la
-                búsqueda de su equilibrio hormonal, dotándolas de las
-                herramientas y conocimientos necesarios para alcanzar su máximo
-                bienestar.
+                Dietista-Nutricionista especializada en patologías digestivas en
+                Las Palmas de Gran Canaria. Ayudo a mis pacientes a alcanzar un
+                estado de salud óptimo, desde un punto de vista integrativo y
+                con un enfoque multidisciplinar.
               </p>
               <Button
                 text="Concertar una cita"

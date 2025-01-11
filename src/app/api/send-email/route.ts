@@ -11,8 +11,8 @@ export async function POST(req) {
 
   try {
     await resend.emails.send({
-      from: 'info@desiacostanutricion.com',
-      to: 'desiacostanutri@gmail.com',
+      from: 'info@roshninutricion.com',
+      to: 'roshninutricion@gmail.com',
       subject: `Consulta Web - ${name}`,
       react: automaticResponseEmail({
         name,
@@ -22,7 +22,7 @@ export async function POST(req) {
     })
 
     await resend.emails.send({
-      from: 'info@desiacostanutricion.com',
+      from: 'info@roshninutricion.com',
       to: email,
       subject: `${name}, gracias por contactarnos`,
       react: GraciasPorContactar({

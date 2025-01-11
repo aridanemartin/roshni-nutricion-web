@@ -5,8 +5,7 @@ import './Header.scss'
 
 export default function Header({ title, image }) {
   const altDescription = enhanceAltDescription(
-    'Dr. Desi Acosta | Nutricionista' +
-      title,
+    'Roshni P. Dietista - Nutricionista en Las Palmas' + title,
   )
 
   return (

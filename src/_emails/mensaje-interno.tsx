@@ -20,7 +20,7 @@ interface automaticResponseEmailProps {
   email?: string
 }
 
-const domainUrl = 'https://www.desiacostanutricion.com'
+const domainUrl = 'https://www.roshninutricion.com'
 
 export const automaticResponseEmail = ({
   name,
@@ -64,7 +64,7 @@ export const automaticResponseEmail = ({
                     fontSize: 32,
                     textAlign: 'center',
                     marginBottom: '0',
-                    color: '#e8998d',
+                    color: '#8eb86f',
                   }}
                 >
                   Mensaje de <b>{getName(name)}</b>,
@@ -75,7 +75,7 @@ export const automaticResponseEmail = ({
                     fontSize: 18,
                     textAlign: 'center',
                     margin: 0,
-                    color: '#e8998d',
+                    color: '#8eb86f',
                     marginBottom: '2rem',
                   }}
                 >
@@ -99,7 +99,7 @@ export const automaticResponseEmail = ({
               color: 'rgb(0,0,0, 0.7)',
             }}
           >
-            © {`${year}`} | Desirée Acosta, Nutricionista / Dietista en Las
+            © {`${year}`} | Roshni Peswani, Dietista - Nutricionista en Las
             Palmas | {`${domainUrl}`}
           </Text>
         </Container>
@@ -131,7 +131,7 @@ const containerButton = {
 }
 
 const button = {
-  backgroundColor: '#e8998d',
+  backgroundColor: '#8eb86f',
   padding: '12px 30px',
   borderRadius: 3,
   color: '#FFF',

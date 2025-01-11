@@ -14,7 +14,7 @@ export default function HeroTemplate() {
       <div className="hero__text-content">
         <h1>
           Bienvenido a <br />
-          <strong>Desirée del Carmen Acosta Santana</strong>
+          <strong>Roshni P. Dietista - Nutricionista en Las Palmas</strong>
         </h1>
         <div className="hero__quote">
           <h2>

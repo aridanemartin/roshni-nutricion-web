@@ -18,7 +18,7 @@ interface graciasPorContactarProps {
   name?: string
 }
 
-let domainUrl = 'https://www.desiacostanutricion.com'
+let domainUrl = 'https://www.roshninutricion.com'
 
 export const GraciasPorContactarEmail = ({
   name,
@@ -38,8 +38,8 @@ export const GraciasPorContactarEmail = ({
     <Html>
       <Head />
       <Preview>
-        Apreciamos tu interés en cuidar de tu salud y bienestar, y estamos
-        comprometidos a brindarte el mejor servicio posible.
+        Valoramos mucho tu interés en priorizar tu salud y bienestar, y nuestro
+        compromiso es ofrecerte la mejor atención posible.
       </Preview>
       <Body style={main}>
         <Container>
@@ -60,7 +60,7 @@ export const GraciasPorContactarEmail = ({
                     fontSize: 32,
                     textAlign: 'center',
                     marginBottom: '0',
-                    color: '#e8998d',
+                    color: '#8eb86f',
                   }}
                 >
                   Estimado/a <b>{getName(name)}</b>,
@@ -71,29 +71,28 @@ export const GraciasPorContactarEmail = ({
                     fontSize: 26,
                     textAlign: 'center',
                     margin: 0,
-                    color: '#e8998d',
+                    color: '#8eb86f',
                     marginBottom: '2rem',
                   }}
                 >
                   gracias por contactarnos
                 </Heading>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
+                {/* <Text style={{ ...paragraph, marginTop: -5 }}>
                   Gracias por tu interés en cuidar de tu salud y bienestar.
-                </Text>
+                </Text> */}
                 <Text
                   style={{ ...paragraph, marginTop: -5, marginBottom: '3rem' }}
                 >
-                  Si necesitas realizar alguna modificación o tienes alguna
-                  pregunta adicional, no dudes en contactarme a través de este
-                  correo electrónico (desiacostanutri@gmail.com). Agradezco la
-                  confianza que has depositado en mis servicios y espero tener
-                  la oportunidad de conocerte pronto y tratar tu caso en
-                  consulta.
+                  Si necesitas hacer alguna pregunta adicional, no dudes en
+                  escribirme a este correo electrónico
+                  (roshninutricion@gmail.com). Te agradezco el interés en mis
+                  servicios y espero poder conocerte pronto para trabajar juntos
+                  en consulta.
                   <br />
                   <br />
                   Atentamente,
                   <br />
-                  Desirée Acosta
+                  Roshni Peswani
                 </Text>
                 {/* <Row style={mapaOficina}>{null}</Row> */}
               </Column>
@@ -113,7 +112,7 @@ export const GraciasPorContactarEmail = ({
               color: 'rgb(0,0,0, 0.7)',
             }}
           >
-            © {`${year}`} | Desirée Acosta, Nutricionista / Dietista en Las
+            © {`${year}`} | Roshni Peswani, Dietista - Nutricionista en Las
             Palmas | {`${domainUrl}`}
           </Text>
         </Container>
@@ -145,7 +144,7 @@ const containerButton = {
 }
 
 const button = {
-  backgroundColor: '#e8998d',
+  backgroundColor: '#8eb86f',
   padding: '12px 30px',
   borderRadius: 3,
   color: '#FFF',

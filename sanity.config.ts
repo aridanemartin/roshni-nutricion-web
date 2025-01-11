@@ -6,7 +6,7 @@ import schemas from './src/sanity/schemas'
 export default defineConfig({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || '',
-  title: 'Desi Acosta Santana',
+  title: 'Roshni P. Dietista - Nutricionista en Las Palmas',
   apiVersion: '2023-03-09',
   plugins: [deskTool(), visionTool()],
   schema: { types: schemas },

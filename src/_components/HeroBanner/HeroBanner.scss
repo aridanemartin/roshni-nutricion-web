@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   height: calc(100vh - 6rem);
-  background: url('../../_assets/background/desiHero2.webp');
+  background: url('../../_assets/pictures/personal/roshniHeroRight.webp');
   background-position: right;
   background-size: cover;
   margin-bottom: 3rem;
@@ -38,14 +38,29 @@
     aspect-ratio: 4/1;
     max-width: 90vw;
     margin-bottom: 1.5rem;
+
+    img {
+      filter: drop-shadow(2px 2px 3px #6c3f23);
+    }
   }
 
   &__title {
     color: white;
-    font-size: 2rem;
-    margin-bottom: 3rem;
-    max-width: 25ch;
+
+    max-width: 30;
     text-align: center;
+    filter: drop-shadow(1px 1px 5px #6c3f23);
+    margin-bottom: 3rem;
+
+    h1 {
+      font-size: 2rem;
+      padding-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: lightgreen;
+    }
   }
 
   &__text {
@@ -87,9 +102,16 @@
     }
 
     &__title {
-      font-size: 1.8rem;
-      max-width: 20ch;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
+
+      h1 {
+        font-size: 2rem;
+        padding-bottom: 1rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
     }
   }
 }
@@ -103,10 +125,6 @@
 
     &__text {
       padding: 0 1rem;
-    }
-
-    &__title {
-      margin-bottom: 1rem;
     }
   }
 }
