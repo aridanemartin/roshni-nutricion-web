@@ -2,7 +2,7 @@
 
 .carousel {
   margin-bottom: 3rem;
-  color: $main-color-brown;
+  color: $main-color-dark;
 
   &__slide {
     display: grid;
@@ -49,7 +49,8 @@
     justify-content: center;
 
     img {
-      filter: invert(1);
+      filter: invert(57%) sepia(15%) saturate(1016%) hue-rotate(52deg)
+        brightness(87%) contrast(84%);
       margin: 0 auto;
       display: block;
       width: 80%;
@@ -62,6 +63,6 @@
 
   .swiper-button-next,
   .swiper-button-prev {
-    color: $main-color-brown;
+    color: $main-color;
   }
 }

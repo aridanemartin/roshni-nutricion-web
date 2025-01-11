@@ -53,7 +53,7 @@
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    color: $main-color-brown;
+    color: $main-color-hover;
   }
 }
 
@@ -61,7 +61,7 @@
   color: $main-color-dark;
 
   &:hover {
-    color: $main-color-brown;
+    color: $main-color-hover;
   }
 }
 
@@ -93,8 +93,7 @@
   }
 
   .navContent {
-    background-color: $main-color-light-hover;
-    opacity: 0.9;
+    background-color: $main-color-dark;
     display: flex;
     flex-direction: column;
     justify-content: center;
