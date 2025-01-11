@@ -35,10 +35,7 @@ export default function Nav() {
   const toggle = () => setIsOpen(!isOpen)
   const pathname = usePathname()
   const isBurgerIconWhite =
-    (pathname.includes('/blog') ||
-      pathname.includes('/servicios') ||
-      pathname === '/') &&
-    !isOpen
+    (pathname.includes('/blog') || pathname === '/') && !isOpen
 
   const isSecondaryColor =
     pathname.includes('/roshni-peswani-nutricionista-dietista') ||
@@ -53,22 +50,22 @@ export default function Nav() {
       >
         <span
           className={`burger__span ${
-            isBurgerIconWhite && 'burger__span-white'
+            isBurgerIconWhite ? 'burger__span-white' : ''
           }`}
         ></span>
         <span
           className={`burger__span ${
-            isBurgerIconWhite && 'burger__span-white'
+            isBurgerIconWhite ? 'burger__span-white' : ''
           }`}
         ></span>
         <span
           className={`burger__span ${
-            isBurgerIconWhite && 'burger__span-white'
+            isBurgerIconWhite ? 'burger__span-white' : ''
           }`}
         ></span>
         <span
           className={`burger__span ${
-            isBurgerIconWhite && 'burger__span-white'
+            isBurgerIconWhite ? 'burger__span-white' : ''
           }`}
         ></span>
       </button>

@@ -30,8 +30,12 @@
       display: inline-block;
       border-radius: 1rem;
       padding: 1rem;
-
       resize: none;
+      color: $main-color-dark;
+
+      &::placeholder {
+        color: $main-color;
+      }
     }
 
     textarea {

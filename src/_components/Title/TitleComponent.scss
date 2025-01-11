@@ -1,0 +1,13 @@
+@use '@sass/colors.scss' as *;
+
+.titleComponent {
+  padding-bottom: 2rem;
+  font-family: 'Cormorant', serif;
+  color: $main-color;
+  font-size: 3rem;
+  text-align: center;
+
+  strong {
+    color: $main-color-dark;
+  }
+}

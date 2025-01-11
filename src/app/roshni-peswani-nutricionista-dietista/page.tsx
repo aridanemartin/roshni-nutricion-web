@@ -9,12 +9,13 @@ import freseniusLogo from '@assets/logos/fresenius.webp'
 import hebeLogo from '@assets/logos/hebe.webp'
 import hpsLogo from '@assets/logos/hps.webp'
 import unedLogo from '@assets/logos/uned.webp'
+import RotatingReviews from '@components/RotatingReviews/RotatingReviews'
 
 import type { Metadata } from 'next'
 import { PressGallery } from '@components/PressGallery/PressGallery'
 import sparArticle1 from '@assets/pictures/articles/sparArticle1.webp'
 import sparArticle2 from '@assets/pictures/articles/sparArticle2.webp'
-
+import { Title } from '@components/Title/Title'
 
 export const metadata: Metadata = {
   title: 'Sobre mi | Desi Acosta Nutricionista - Dietista en Las Palmas',
@@ -33,16 +34,6 @@ const pressGalleryData = [
     url: 'https://spargrancanaria.es/alimentos-ecologicos-y-bio/',
     image: `${sparArticle2.src}`,
   },
-  // {
-  //   title: '<strong>Spar:</strong> "Acné bajo control desde la nutrición"',
-  //   url: 'https://www.sparnatural.com/acne-bajo-control-desde-la-nutricion/',
-  //   image: `${acneImage.src}`,
-  // },
-  // {
-  //   title: '<strong>Spar:</strong> "Nutrición en la endometriosis"',
-  //   url: 'https://www.sparnatural.com/nutricion-y-estilo-de-vida-aliados-en-la-endometriosis/',
-  //   image: `${stomachImage.src}`,
-  // },
 ]
 
 export default function About() {
@@ -62,7 +53,7 @@ export default function About() {
         <section className="about__content">
           <div>
             <h2 className="about__content-title">
-              Hola! <strong>soy Roshni</strong>
+              ¡Hola! <strong>soy Roshni</strong>
             </h2>
             <div className="about__content-text">
               <p>
@@ -139,6 +130,8 @@ export default function About() {
         </section>
       </div>
       <PressGallery data={pressGalleryData} />
+      <Title headingType={'h2'}>Reviews</Title>
+      <RotatingReviews />
     </>
   )
 }

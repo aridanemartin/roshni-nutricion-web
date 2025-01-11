@@ -1,0 +1,155 @@
+.slider {
+  background: white;
+  height: auto;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  padding: 3rem 0rem;
+}
+
+.slider::before,
+.slider::after {
+  background: linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  content: '';
+  height: 100%;
+  position: absolute;
+  width: 100px;
+  z-index: 2;
+}
+
+.slider::after {
+  right: 0;
+  top: 0;
+  -webkit-transform: rotateZ(180deg);
+  transform: rotateZ(180deg);
+}
+
+.slider::before {
+  left: 0;
+  top: 0;
+}
+
+.slider .slideTrack {
+  animation: scroll 80s linear infinite;
+  display: flex;
+  width: calc(500px * 8);
+}
+
+.slider .slideTrack:hover {
+  animation-play-state: paused;
+}
+
+.cslide {
+  font-family: 'Roboto', sans-serif;
+  height: auto;
+  width: 500px;
+  text-align: center;
+
+  display: grid;
+  grid-template-rows: auto 50% 50%;
+  margin: 0;
+}
+
+.imageWrap {
+  margin-left: 1rem;
+  position: relative;
+  height: 2rem;
+  width: 2rem;
+  filter: invert(57%) sepia(15%) saturate(1016%) hue-rotate(52deg)
+    brightness(87%) contrast(84%);
+  opacity: 0.5;
+}
+
+.slideText {
+  font-size: 1rem;
+  font-style: italic;
+  color: #333;
+  padding: 2rem;
+  text-align: center;
+  margin: 0;
+}
+
+.grupoWrap {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 2rem;
+  height: 6rem;
+  /* padding: 3rem 0rem; */
+}
+
+.author {
+  grid-area: autor;
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin: 0;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.extraido {
+  grid-area: extraido;
+  display: block;
+  font-size: 0.7rem;
+  color: #777;
+}
+
+.fuente {
+  grid-area: fuente;
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-500px * 4));
+  }
+}
+
+@media (max-width: 500px) {
+  .slider::before,
+  .slider::after {
+    background: transparent;
+  }
+
+  .slider .slideTrack {
+    width: calc(300px * 8);
+  }
+
+  .slider .slideTrack:hover {
+    animation-play-state: unset;
+  }
+
+  .slider {
+    height: 450px;
+    padding: 1rem;
+  }
+
+  .slideText {
+    font-size: 0.9rem;
+    padding: 1.5rem;
+  }
+
+  .cslide {
+    height: 450px;
+    width: 300px;
+    grid-template-rows: auto 60% 40%;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-300px * 4));
+    }
+  }
+}
