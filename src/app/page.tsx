@@ -1,4 +1,4 @@
-import { getPosts } from 'src/sanity/utils/sanity-querys'
+import posts from '../app/blog/posts.json'
 import { PostPreview } from '@components/PostPreview/PostPreview'
 import Headline from '@components/Headline/Headline'
 import HeroBanner from '@components/HeroBanner/HeroBanner'
@@ -11,8 +11,6 @@ import autoinmuneIcon from '@assets/icons/immunity.webp'
 import metabolicIcon from '@assets/icons/diabetes.webp'
 import bodyCompositionIcon from '@assets/icons/fat.webp'
 import { Button } from '@components/Button/Button'
-
-interface indexProps {}
 
 const Carousel = dynamic(() => import('@components/Carousel/Carousel'), {
   ssr: false,
@@ -61,9 +59,8 @@ const services = [
   },
 ]
 
-export default async function Home({}: indexProps) {
-  const posts = await getPosts()
-  const latestPosts = posts.slice(posts.length - 3, posts.length)
+export default async function Home() {
+  const latestPosts = posts.slice(0, 3)
 
   return (
     <>
@@ -95,21 +92,20 @@ export default async function Home({}: indexProps) {
           }
         />
         <Headline
-          title="Servicios"
-          subtitle="Descubre cómo la Nutrición Personalizada puede transformar tu bienestar en cada etapa de la vida. Complementa esto con nuestra Nutrición Clínica, que aborda condiciones como obesidad, diabetes y alergias con un enfoque integral."
-          id="servicios"
-        />
-        <Carousel services={services} />
-        <Headline
           title="Últimos Posts"
           subtitle="Mantente al día con las tendencias en nutrición a través de nuestro blog. Descubre recetas innovadoras, consejos expertos y noticias sobre bienestar que te guiarán hacia un estilo de vida más saludable."
         />
-
         <div className="latestPosts">
           {latestPosts.map((post) => {
             return <PostPreview key={post._id} post={post} />
           })}
         </div>
+        <Headline
+          title="Servicios"
+          subtitle="Descubre cómo la Nutrición Personalizada puede transformar tu bienestar en cada etapa de la vida. Complementa esto con nuestra Nutrición Clínica, que aborda condiciones como obesidad, diabetes y alergias con un enfoque integral."
+          id="servicios"
+        />
+        <Carousel services={services} />
       </main>
     </>
   )

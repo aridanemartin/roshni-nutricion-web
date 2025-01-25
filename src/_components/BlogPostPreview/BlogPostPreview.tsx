@@ -1,17 +1,22 @@
-import Link from 'next/link'
 import React from 'react'
 import './BlogPostPreview.scss'
 import { enhanceAltDescription } from '@utils/enhanceAltDescription'
 import Image from 'next/image'
 
 export const BlogPostPreview = ({ post }) => {
+  console.log(post)
   return (
-    <Link key={post.slug} href={`blog/${post.slug}`}>
+    <a
+      key={post.link}
+      href={post.link}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <div className="blogPostPreview" key={post._id}>
         <div className="blogPostPreview__image">
           <Image
             className="blogPostPreview__image-img"
-            src={post.mainImage}
+            src={post.image}
             alt={enhanceAltDescription(post.title)}
             fill
           />
@@ -26,8 +31,20 @@ export const BlogPostPreview = ({ post }) => {
           <p className="blogPostPreview__description-text">
             {post.description}
           </p>
+          {post.collaboratorLogo && (
+            <div className="blogPostPreview__collaboration">
+              <p>Colaborando con:</p>
+              <div className="blogPostPreview__collaborationLogo">
+                <Image
+                  alt="collaborationLogo"
+                  src={post.collaboratorLogo}
+                  fill
+                />
+              </div>
+            </div>
+          )}
         </section>
       </div>
-    </Link>
+    </a>
   )
 }

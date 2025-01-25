@@ -26,6 +26,13 @@
     color: red;
     margin-top: 0.5rem;
   }
+
+  &__privacy {
+    width: 90%;
+    padding: 2rem 0rem;
+    font-size: 0.75rem;
+    color: #ccc;
+  }
 }
 
 @keyframes rotation {

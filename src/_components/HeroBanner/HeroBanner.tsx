@@ -36,7 +36,7 @@ const HeroBanner = ({ description, buttonComponent }: HeroBannerProps) => {
             <Button
               baseClassName="heroBanner__button button-primary"
               text="Concertar cita"
-              href="https://linktr.ee/desiacosta.nutri"
+              href="/contacto"
             />
           </div>
         </div>

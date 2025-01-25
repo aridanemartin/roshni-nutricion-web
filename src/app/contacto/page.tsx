@@ -5,9 +5,8 @@ import '@styles/Contacto.scss'
 
 export const metadata: Metadata = {
   title:
-    'Contacto | Desi Acosta Nutricionista / Dietista en Las Palmas de Gran Canaria',
-  description:
-    'Desirée Acosta, Dietista Nutricionista en Las Palmas, colegiada en CODINUISCAN, con más de 15 años de experiencia. Especializada en mejorar hábitos alimenticios, planificación de menús y tratamiento de patologías. ¡Prioriza tu bienestar hoy!',
+    'Contacto | Roshni Peswani Nutricionista / Dietista en Las Palmas de Gran Canaria',
+  description: 'Roshni Peswani, Dietista Nutricionista en Las Palmas',
 }
 
 const Contacto = () => {

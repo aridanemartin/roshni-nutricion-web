@@ -17,7 +17,7 @@ import { LinkedinIcon } from '@components/SocialIcon/LinkedinIcon'
 
 const socialLinks = [
   {
-    href: 'https://www.instagram.com/desiacosta.nutri/',
+    href: 'https://www.instagram.com/roshninutricion/',
     icon: <InstagramIcon />,
   },
   {
@@ -25,7 +25,7 @@ const socialLinks = [
     icon: <DoctoraliaIcon />,
   },
   {
-    href: 'https://www.linkedin.com/in/desinutri',
+    href: 'https://www.linkedin.com/in/roshni-peswani-8057604b/',
     icon: <LinkedinIcon />,
   },
 ]

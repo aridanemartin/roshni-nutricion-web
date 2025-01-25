@@ -141,6 +141,11 @@ const ContactForm = () => {
         error={formErrors.message}
       />
       {renderButton()}
+      <p className="contact-form__privacy">
+        Utilizaremos sus datos únicamente para responder consultas y realizar
+        análisis estadísticos. Para más información sobre el tratamiento y sus
+        derechos, consulte la política de privacidad
+      </p>
     </form>
   )
 }

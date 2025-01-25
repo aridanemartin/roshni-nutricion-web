@@ -18,7 +18,7 @@ import sparArticle2 from '@assets/pictures/articles/sparArticle2.webp'
 import { Title } from '@components/Title/Title'
 
 export const metadata: Metadata = {
-  title: 'Sobre mi | Desi Acosta Nutricionista - Dietista en Las Palmas',
+  title: 'Sobre mi | Roshni Peswani Nutricionista - Dietista en Las Palmas',
   description:
     'Desirée Acosta, Diplomada en Nutrición Humana y Dietética. Colegiada en el Colegio de Dietistas - Nutricionistas de las Islas Canarias CODINUISCAN.',
 }

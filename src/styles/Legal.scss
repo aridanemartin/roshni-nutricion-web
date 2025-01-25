@@ -5,6 +5,22 @@
   align-items: center;
 }
 
+.legalText p,
+.legalText ul,
+.legalText li,
+.legalText a {
+  padding: 0.5rem;
+  text-align: left;
+  list-style: none;
+}
+
+.legalText h1,
+.legalText h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 1rem;
+}
+
 .legalTextTitle {
   font-size: 1.5rem;
   font-weight: 700;

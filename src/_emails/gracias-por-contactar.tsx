@@ -19,6 +19,7 @@ interface graciasPorContactarProps {
 }
 
 let domainUrl = 'https://www.roshninutricion.com'
+domainUrl = ''
 
 export const GraciasPorContactarEmail = ({
   name,
@@ -43,13 +44,9 @@ export const GraciasPorContactarEmail = ({
       </Preview>
       <Body style={main}>
         <Container>
-          {/* <Section style={logo}>
-            <Img
-              src={`${domainUrl}/static/logoDesi.png`}
-              width="100"
-              height="100"
-            />
-          </Section> */}
+          <Section style={logo}>
+            <Img src={`${domainUrl}/static/logoVerde.png`} height="75" />
+          </Section>
 
           <Section style={content}>
             <Row style={headerBackground}>{null}</Row>
@@ -77,9 +74,6 @@ export const GraciasPorContactarEmail = ({
                 >
                   gracias por contactarnos
                 </Heading>
-                {/* <Text style={{ ...paragraph, marginTop: -5 }}>
-                  Gracias por tu interés en cuidar de tu salud y bienestar.
-                </Text> */}
                 <Text
                   style={{ ...paragraph, marginTop: -5, marginBottom: '3rem' }}
                 >
@@ -94,7 +88,6 @@ export const GraciasPorContactarEmail = ({
                   <br />
                   Roshni Peswani
                 </Text>
-                {/* <Row style={mapaOficina}>{null}</Row> */}
               </Column>
             </Row>
             <Row style={{ ...boxInfos, paddingTop: '0' }}>
@@ -133,8 +126,10 @@ const paragraph = {
 }
 
 const logo = {
-  height: '100px',
-  padding: '30px 20px',
+  display: 'flex',
+  justifyContent: 'center',
+  height: 'fit-content',
+  padding: '2rem 0',
 }
 
 const containerButton = {
@@ -164,18 +159,9 @@ const boxInfos = {
 }
 
 const headerBackground = {
-  backgroundImage: `url(${domainUrl}/static/contactoWithLogo.webp)`,
+  backgroundImage: `url(${domainUrl}/static/roshniProfile2.webp)`,
   backgroundSize: 'cover',
-  backgroundPosition: 'center',
+  backgroundPosition: '0 20%',
   backgroundRepeat: 'no-repeat',
-  height: '200px',
-}
-
-const mapaOficina = {
-  backgroundImage: `url(${domainUrl}/static/mapaOficina.webp)`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  height: '200px',
-  marginBottom: '2rem',
+  height: '300px',
 }

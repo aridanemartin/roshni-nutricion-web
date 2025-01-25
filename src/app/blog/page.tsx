@@ -1,4 +1,4 @@
-import { getPosts } from 'src/sanity/utils/sanity-querys'
+import posts from './posts.json'
 
 import '@styles/Blog.scss'
 import heroImage from '@assets/pictures/personal/roshniHeroRight.webp'
@@ -8,23 +8,23 @@ import Headline from '@components/Headline/Headline'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Blog | Desi Acosta Nutricionista - Dietista en Las Palmas',
+  title: 'Blog | Roshni Peswani Nutricionista - Dietista en Las Palmas',
   description:
-    'Desireé Acosta Santana, Dietista Nutricionista en Las Palmas, colegiada en CODINUISCAN, con más de 15 años de experiencia. Especializada en mejorar hábitos alimenticios, planificación de menús y tratamiento de patologías. ¡Prioriza tu bienestar hoy!',
+    'Dietista-Nutricionista especializada en patologías digestivas en Las Palmas de Gran Canaria. Ayudo a mis pacientes a alcanzar un estado de salud óptimo, desde un punto de vista integrativo y con un enfoque multidisciplinar.',
 }
 
 const Blog = async () => {
-  const posts = await getPosts()
-
   return (
     <>
       <Header title="Blog" image={heroImage} />
       <div className="postsContainer">
-        <Headline
+      <Headline
           title="Artículos"
           subtitle="Te damos la bienvenida a nuestro blog, donde podrás obtener inspiración, consejos prácticos y la información más reciente sobre cómo mejorar tu bienestar a través de una alimentación saludable."
         />
-        {posts.length && posts.map((post) => <BlogPostPreview post={post} />)}
+        {posts.map((post) => (
+          <BlogPostPreview key={post.id} post={post} />
+        ))}
       </div>
     </>
   )
