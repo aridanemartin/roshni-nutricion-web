@@ -12,7 +12,7 @@ export async function POST(req) {
   try {
     await resend.emails.send({
       from: 'info@roshninutricion.com',
-      to: 'roshninutricion@gmail.com',
+      to: 'aridanemartin@gmail.com', // Change this to the email you want to receive the contact form
       subject: `Consulta Web - ${name}`,
       react: automaticResponseEmail({
         name,
