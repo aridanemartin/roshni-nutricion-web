@@ -97,7 +97,7 @@ export default async function Home() {
         />
         <div className="latestPosts">
           {latestPosts.map((post) => {
-            return <PostPreview key={post._id} post={post} />
+            return <PostPreview key={post.id} post={post} />
           })}
         </div>
         <Headline
