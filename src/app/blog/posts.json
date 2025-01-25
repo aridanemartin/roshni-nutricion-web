@@ -1,0 +1,106 @@
+[
+  {
+    "id": 6,
+    "link": "https://www.laprovincia.es/sociedad/2023/06/17/hay-dieta-sea-saludable-rapida-88834209.html",
+    "title": "No hay dieta que sea saludable, rápida y sostenible",
+    "image": "/static/blog/roshniHps2.webp",
+    "description": "La \"Operación Bikini\" debería ser reemplazada por un enfoque de \"Cambio de Hábitos\" a largo plazo. Las dietas milagro, aunque prometen resultados rápidos, son peligrosas para la salud. La clave es adoptar hábitos saludables y sostenibles, centrarse en el bienestar y buscar ayuda profesional para evitar la frustración y lograr objetivos realistas.",
+    "collaboratorLogo": "/static/collaborators/laProvinciaLogo.webp"
+  },
+  {
+    "id": 1,
+    "link": "https://www.sparnatural.com/beneficios-de-una-dieta-antiinflamatoria/",
+    "title": "Beneficios de una dieta antiinflamatoria",
+    "image": "/static/blog/beneficiosParaUnaDieta.webp",
+    "description": "La inflamación crónica está relacionada con problemas como diabetes y obesidad, pero una dieta antiinflamatoria puede ayudar. Prioriza vegetales, grasas saludables, frutas ricas en vitamina C y alimentos fermentados para mejorar la digestión, la energía y fortalecer tu sistema inmunitario. Combina estos alimentos con hábitos como descanso adecuado, ejercicio y manejo del estrés para un enfoque integral de bienestar. ¡Empieza hoy a cuidar tu salud desde la alimentación!",
+    "collaboratorLogo": "/static/collaborators/sparLogo.webp"
+  },
+  {
+    "id": 13,
+    "link": "https://www.canarias7.es/sociedad/clave-optar-alimentos-naturales-saciantes-nutritivos-evitar-20231015230756-nt.html",
+    "title": "Optar por alimentos naturales, saciantes y nutritivos para evitar picar entre horas",
+    "image": "/static/blog/roshniHps.webp",
+    "description": "Comer sano en Las Palmas sin gastar de más es posible con planificación y hábitos inteligentes. La nutricionista Roshni Peswani recomienda priorizar productos de temporada, elaborar menús semanales, evitar ultraprocesados y optar por proteínas económicas como huevos y legumbres. Comprar marcas blancas, aprovechar ofertas y cocinar en casa son claves para ahorrar y mantener una dieta equilibrada.",
+    "collaboratorLogo": "/static/collaborators/canarias7Logo.webp"
+  },
+  {
+    "id": 2,
+    "link": "https://www.sparnatural.com/tips-para-comer-estas-navidades-sin-que-el-intestino-se-resienta/",
+    "title": "Tips para comer en navidades sin que el intestino se resienta",
+    "image": "/static/blog/tipsNavidades.webp",
+    "description": "Evita la pesadez navideña comiendo despacio, eligiendo platos ligeros como horneados o hervidos e incluyendo vegetales. Controla las porciones, mantén tu rutina alimentaria, hidrátate bien y da un paseo tras la comida. Infusiones digestivas y alimentos probióticos también ayudarán a cuidar tu intestino.",
+    "collaboratorLogo": "/static/collaborators/sparLogo.webp"
+  },
+  {
+    "id": 3,
+    "link": "https://www.sparnatural.com/intolerancia-a-la-lactosa-que-hay-detras/",
+    "title": "Intolerancia a la lactosa: ¿Qué hay detrás?",
+    "image": "/static/blog/intoleranciaLactosa.webp",
+    "description": "La intolerancia a la lactosa surge por la falta de lactasa, dificultando la digestión de este azúcar. Además de causas genéticas, puede ser secundaria a problemas intestinales. Para mejorar la tolerancia, opta por lácteos fermentados, quesos curados o suplementos de lactasa. Los probióticos también ayudan, y las alternativas vegetales son una opción válida. No elimines los lácteos sin tratar las causas intestinales subyacentes.",
+    "collaboratorLogo": "/static/collaborators/sparLogo.webp"
+  },
+  {
+    "id": 4,
+    "link": "https://cadenaser.com/audio/081RD010000000076593/",
+    "title": "CADENA SER: Sección Nutripedia, con la nutricionista Roshni Peswani: El síndrome metabólico",
+    "image": "/static/blog/nutripedia.webp",
+    "description": "Nutripedia es una sección destacada de la Cadena SER en Las Palmas, donde la nutricionista Roshni Peswani aborda temas clave de salud y bienestar. En este espacio, Roshni comparte su experiencia profesional para educar a la audiencia sobre alimentación saludable y prevención de enfermedades. En el episodio dedicado al síndrome metabólico, se exploran estrategias nutricionales y hábitos de vida para combatir esta condición, que incluye obesidad abdominal, diabetes y colesterol alto. Una guía clara y práctica para mejorar la salud desde la nutrición.",
+    "collaboratorLogo": "/static/collaborators/cadenaSerLogo.webp"
+  },
+  {
+    "id": 5,
+    "link": "https://www.laprovincia.es/sociedad/2023/12/24/roshni-peswani-hay-disfrutar-nochebuena-96205448.html",
+    "title": "Roshni Peswani: Hay que disfrutar la Nochebuena",
+    "image": "/static/blog/nochebuena.webp",
+    "description": "La Dra. Roshni Peswani de Kala by HPS aconseja disfrutar la Navidad con moderación, manteniendo hábitos saludables y planificando las comidas para evitar excesos. Priorizar vegetales, carnes magras, agua como bebida principal y controlar las porciones son claves para disfrutar sin descuidar la salud.",
+    "collaboratorLogo": "/static/collaborators/laProvinciaLogo.webp"
+  },
+  {
+    "id": 7,
+    "link": "https://alimentacionantiinflamatoria.com/que-es-como-funciona-la-permeabilidad-intestinal/",
+    "title": "¿Qué es y cómo funciona la permeabilidad intestinal?",
+    "image": "/static/blog/permeabilidadIntestinal.webp",
+    "description": "La permeabilidad intestinal es la capacidad del intestino para permitir el paso selectivo de nutrientes y bloquear sustancias dañinas. Cuando la barrera intestinal se daña, puede aumentar la permeabilidad, permitiendo la filtración de toxinas y microorganismos, lo que lleva a inflamación crónica y enfermedades autoinmunes. La recuperación es posible con intervenciones dietéticas y estrategias que refuercen la barrera intestinal.",
+    "collaboratorLogo": ""
+  },
+  {
+    "id": 8,
+    "link": "https://www.laprovincia.es/sociedad/2024/08/09/siete-claves-mantener-alimentacion-saludable-106815515.html",
+    "title": "Siete claves para mantener una alimentación saludable",
+    "image": "/static/blog/sieteClaves.webp",
+    "description": "Las vacaciones de verano suelen modificar las rutinas alimentarias, con más comidas fuera de casa y cambios por los viajes. Candela Pallás y Roshni Peswani ofrecen siete claves para mantener una dieta saludable en esta época, destacando la importancia de las frutas, hortalizas y legumbres.",
+    "collaboratorLogo": "/static/collaborators/laProvinciaLogo.webp"
+  },
+  {
+    "id": 9,
+    "link": "https://spargrancanaria.es/bye-bye-al-catarro/?sfnsn=scwspwa",
+    "title": "Bye bye al catarro",
+    "image": "/static/blog/catarro.webp",
+    "description": "El frío aumenta el riesgo de resfriados, pero una dieta equilibrada fortalece el sistema inmunitario. Vitaminas A, C, D y zinc, presentes en alimentos como frutas, verduras, pescado y lácteos, ayudan a prevenir infecciones respiratorias. Además, compuestos azufrados y flavonoides en ajo, cebolla y manzanas favorecen la salud inmunológica.",
+    "collaboratorLogo": "/static/collaborators/sparLogo.webp"
+  },
+  {
+    "id": 10,
+    "link": "https://spargrancanaria.es/dia-del-vegetarianismo/?fbclid=IwY2xjawH3VtVleHRuA2FlbQIxMQABHRmOx_VDh4w57ucDflE7SkmS-XHNcAGiq8wqxHsjTxQKfQohXH497TFj_Q_aem_zZ8OLxMhntdLA3zPTtIt8g&sfnsn=scwspwa",
+    "title": "Día del vegetarianismo",
+    "image": "/static/blog/vegetarianismo.webp",
+    "description": "El Día Internacional del Vegetarianismo, celebrado el 1 de octubre, celebra diferentes tipos de dietas vegetarianas, que varían en la inclusión de alimentos de origen animal como lácteos, huevos y miel. La despensa vegetariana debe incluir productos como tofu, tempeh, pseudocereales y frutos secos, esenciales para asegurar una dieta equilibrada. Se recomienda contar con el consejo de un nutricionista para una alimentación saludable.",
+    "collaboratorLogo": "/static/collaborators/sparLogo.webp"
+  },
+  {
+    "id": 11,
+    "link": "https://spargrancanaria.es/son-utiles-las-apps-de-nutricion/",
+    "title": "¿Son útiles las apps de nutrición?",
+    "image": "/static/blog/appNutricion.webp",
+    "description": "Las apps de nutrición pueden ayudar a hacer compras más conscientes al mostrar la puntuación de productos basada en su composición, aditivos y procesamiento. Aunque son útiles, tienen limitaciones: no ofrecen recomendaciones personalizadas ni consideran necesidades específicas, y los criterios de evaluación varían entre aplicaciones. A veces pueden dar una falsa sensación de seguridad, promoviendo productos no necesariamente saludables. Lo ideal es optar por alimentos frescos y naturales, y siempre consultar a un profesional de salud para recomendaciones más precisas.",
+    "collaboratorLogo": "/static/collaborators/sparLogo.webp"
+  },
+  {
+    "id": 12,
+    "link": "https://www.sparnatural.com/alimentacion-prebiotica/",
+    "title": "Alimentación prebiotica",
+    "image": "/static/blog/alimentosProbioticos.webp",
+    "description": "Los prebióticos son sustancias no digeribles que actúan como \"fertilizantes\" para las bacterias intestinales, promoviendo una microbiota saludable. Están en alimentos como la inulina (ajo, cebolla, alcachofa), galactooligosacáridos (legumbres, frutos secos), pectinas (manzana, zanahoria), betaglucanos (avena, cebada), entre otros. Estos compuestos fomentan la producción de sustancias beneficiosas para la salud, incluyendo efectos antiinflamatorios y mejoras en la función cerebral.",
+    "collaboratorLogo": "/static/collaborators/sparLogo.webp"
+  }
+]
