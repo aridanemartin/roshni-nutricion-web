@@ -48,7 +48,7 @@ export const automaticResponseEmail = ({
       <Body style={main}>
         <Container>
           <Section style={logo}>
-            <Img src={`${domainUrl}/static/logoVerde.png`} height="75" />
+            <Img src={`/static/logoVerde.png`} height="75" />
           </Section>
 
           <Section style={content}>
