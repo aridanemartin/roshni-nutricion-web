@@ -22,7 +22,7 @@ export async function POST(req) {
     })
 
     await resend.emails.send({
-      from: 'roshninutricion@gmail.com',
+      from: 'info@roshninutricion.com',
       to: email,
       subject: `${name}, gracias por contactarnos`,
       react: GraciasPorContactar({
