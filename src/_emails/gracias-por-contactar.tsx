@@ -44,7 +44,11 @@ export const GraciasPorContactarEmail = ({
       <Body style={main}>
         <Container>
           <Section style={logo}>
-            <Img src={`${domainUrl}/static/logoVerde.png`} height="75" />
+            <Img
+              src="https://roshninutricion.com/static/logoVerde.png"
+              height="75"
+              alt="Roshni Nutrición Logo"
+            />
           </Section>
 
           <Section style={content}>
@@ -158,7 +162,7 @@ const boxInfos = {
 }
 
 const headerBackground = {
-  backgroundImage: `url(${domainUrl}/static/roshniProfile2.png)`,
+  backgroundImage: 'url(https://roshninutricion.com/static/roshniProfile2.png)',
   backgroundSize: 'cover',
   backgroundPosition: '0 20%',
   backgroundRepeat: 'no-repeat',

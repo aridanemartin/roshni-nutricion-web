@@ -19,8 +19,7 @@ import { Title } from '@components/Title/Title'
 
 export const metadata: Metadata = {
   title: 'Sobre mi | Roshni Peswani Nutricionista - Dietista en Las Palmas',
-  description:
-    'Desirée Acosta, Diplomada en Nutrición Humana y Dietética. Colegiada en el Colegio de Dietistas - Nutricionistas de las Islas Canarias CODINUISCAN.',
+  description: 'Roshni Peswani Nutricionista - Dietista en Las Palmas',
 }
 
 const pressGalleryData = [

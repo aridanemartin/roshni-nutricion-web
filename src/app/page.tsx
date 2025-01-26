@@ -84,10 +84,7 @@ export default async function Home() {
                 estado de salud óptimo, desde un punto de vista integrativo y
                 con un enfoque multidisciplinar.
               </p>
-              <Button
-                text="Concertar una cita"
-                href="https://linktr.ee/desiacosta.nutri"
-              />
+              <Button text="Concertar una cita" href="/contacto" />
             </>
           }
         />

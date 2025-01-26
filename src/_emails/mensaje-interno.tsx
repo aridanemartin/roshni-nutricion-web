@@ -46,7 +46,11 @@ export const automaticResponseEmail = ({
       <Body style={main}>
         <Container>
           <Section style={logo}>
-            <Img src={`${domainUrl}/static/logoVerde.png`} height="75" />
+            <Img
+              src={`${domainUrl}/static/logoVerde.png`}
+              height="75"
+              alt="Roshni Nutrición Logo"
+            />
           </Section>
 
           <Section style={content}>
