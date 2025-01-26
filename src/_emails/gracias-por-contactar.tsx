@@ -44,7 +44,7 @@ export const GraciasPorContactarEmail = ({
       <Body style={main}>
         <Container>
           <Section style={logo}>
-            <Img src={`/static/logoVerde.png`} height="75" />
+            <Img src={`${domainUrl}/static/logoVerde.png`} height="75" />
           </Section>
 
           <Section style={content}>
@@ -158,7 +158,7 @@ const boxInfos = {
 }
 
 const headerBackground = {
-  backgroundImage: `url(/static/roshniProfile2.webp)`,
+  backgroundImage: `url(${domainUrl}/static/roshniProfile2.png)`,
   backgroundSize: 'cover',
   backgroundPosition: '0 20%',
   backgroundRepeat: 'no-repeat',
