@@ -19,7 +19,6 @@ interface graciasPorContactarProps {
 }
 
 let domainUrl = 'https://www.roshninutricion.com'
-domainUrl = ''
 
 export const GraciasPorContactarEmail = ({
   name,

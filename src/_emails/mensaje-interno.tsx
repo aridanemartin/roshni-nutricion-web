@@ -21,7 +21,6 @@ interface automaticResponseEmailProps {
 }
 
 let domainUrl = 'https://www.roshninutricion.com'
-domainUrl = ''
 
 export const automaticResponseEmail = ({
   name,
