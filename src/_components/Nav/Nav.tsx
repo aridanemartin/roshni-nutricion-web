@@ -14,19 +14,24 @@ import { InstagramIcon } from '@components/SocialIcon/InstagramIcon'
 import { usePathname } from 'next/navigation'
 import { SocialIcons } from '@components/SocialIcons/SocialIcons'
 import { LinkedinIcon } from '@components/SocialIcon/LinkedinIcon'
+import { WhatsappIcon } from '@components/SocialIcon/WhatsappIcon'
 
 const socialLinks = [
   {
-    href: 'https://www.instagram.com/roshninutricion/',
-    icon: <InstagramIcon />,
+    href: 'https://www.linkedin.com/in/roshni-peswani-8057604b/?originalSubdomain=es',
+    icon: <LinkedinIcon />,
   },
   {
     href: 'https://www.doctoralia.es/roshni-peswani-peswani/dietista-nutricionista/las-palmas-de-gran-canaria',
     icon: <DoctoraliaIcon />,
   },
   {
-    href: 'https://www.linkedin.com/in/roshni-peswani-8057604b/',
-    icon: <LinkedinIcon />,
+    href: 'https://www.instagram.com/roshninutricion/',
+    icon: <InstagramIcon />,
+  },
+  {
+    href: 'https://wa.me/34644011842',
+    icon: <WhatsappIcon />,
   },
 ]
 

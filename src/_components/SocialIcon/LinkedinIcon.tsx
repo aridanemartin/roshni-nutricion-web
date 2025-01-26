@@ -2,12 +2,13 @@ export const LinkedinIcon = () => {
   return (
     <svg
       fill="#000000"
-      height="90%"
-      width="90%"
+      height="30px"
+      width="30px"
       version="1.1"
       id="Layer_1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 310 310"
+      style={{ transform: 'scale(0.9)' }}
     >
       <g id="XMLID_801_">
         <path

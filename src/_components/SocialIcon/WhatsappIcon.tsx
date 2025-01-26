@@ -6,8 +6,8 @@ export const WhatsappIcon = ({ color }: IconProps) => {
   return (
     <svg
       fill={color}
-      height="100%"
-      width="100%"
+      height="30px"
+      width="30px"
       id="biggerSvg"
       viewBox="0 0 308 308"
     >
