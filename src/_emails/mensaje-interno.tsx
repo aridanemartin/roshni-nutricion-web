@@ -142,7 +142,7 @@ const boxInfos = {
 }
 
 const headerBackground = {
-  backgroundImage: `url(${domainUrl}/static/roshniProfile2.webp)`,
+  backgroundImage: `url(/static/roshniProfile2.webp)`,
   backgroundSize: 'cover',
   backgroundPosition: '0 20%',
   backgroundRepeat: 'no-repeat',
