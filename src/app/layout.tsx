@@ -1,5 +1,5 @@
 import Nav from '@components/Nav/Nav'
-import { Forum, Playfair_Display, Source_Sans_3 } from 'next/font/google'
+import { Playfair_Display, Source_Sans_3 } from 'next/font/google'
 import '@styles/global.scss'
 import Footer from '@components/Footer/Footer'
 import AriSignature from '@components/AriSignature/AriSignature'
@@ -26,7 +26,7 @@ const sourceSans = Source_Sans_3({
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  readonly children: React.ReactNode
 }) {
   return (
     <html lang="en">

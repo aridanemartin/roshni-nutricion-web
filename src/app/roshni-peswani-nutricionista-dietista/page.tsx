@@ -16,6 +16,7 @@ import { PressGallery } from '@components/PressGallery/PressGallery'
 import sparArticle1 from '@assets/pictures/articles/sparArticle1.webp'
 import sparArticle2 from '@assets/pictures/articles/sparArticle2.webp'
 import { Title } from '@components/Title/Title'
+import Headline from '@components/Headline/Headline'
 
 export const metadata: Metadata = {
   title: 'Sobre mi | Roshni Peswani Nutricionista - Dietista en Las Palmas',
@@ -128,9 +129,14 @@ export default function About() {
           </div>
         </section>
       </div>
-      <PressGallery data={pressGalleryData} />
-      <Title headingType={'h2'}>Reviews</Title>
-      <RotatingReviews />
+      <div className="about__reviewsSection">
+        <Headline
+          title="Reseñas"
+          subtitle="A continuación, algunos testimonios de pacientes que han experimentado una mejora significativa en su salud y bienestar gracias a la atención personalizada de Roshni Peswani."
+          id="reseñas"
+        />
+        <RotatingReviews />
+      </div>
     </>
   )
 }

@@ -21,7 +21,7 @@ const socialLinks = [
     icon: <InstagramIcon />,
   },
   {
-    href: 'https://www.doctoralia.es/roshni-peswani-santana/dietista-nutricionista/las-palmas-de-gran-canaria',
+    href: 'https://www.doctoralia.es/roshni-peswani-peswani/dietista-nutricionista/las-palmas-de-gran-canaria',
     icon: <DoctoraliaIcon />,
   },
   {

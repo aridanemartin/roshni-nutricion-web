@@ -11,6 +11,7 @@ import autoinmuneIcon from '@assets/icons/immunity.webp'
 import metabolicIcon from '@assets/icons/diabetes.webp'
 import bodyCompositionIcon from '@assets/icons/fat.webp'
 import { Button } from '@components/Button/Button'
+import RotatingReviews from '@components/RotatingReviews/RotatingReviews'
 
 const Carousel = dynamic(() => import('@components/Carousel/Carousel'), {
   ssr: false,
@@ -103,6 +104,12 @@ export default async function Home() {
           id="servicios"
         />
         <Carousel services={services} />
+        <Headline
+          title="Reseñas"
+          subtitle="A continuación, algunos testimonios de pacientes que han experimentado una mejora significativa en su salud y bienestar gracias a la atención personalizada de Roshni Peswani."
+          id="reseñas"
+        />
+        <RotatingReviews />
       </main>
     </>
   )

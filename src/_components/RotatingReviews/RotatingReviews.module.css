@@ -5,8 +5,6 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-
-  padding: 3rem 0rem;
 }
 
 .slider::before,
@@ -77,7 +75,6 @@
 
   margin-top: 2rem;
   height: 6rem;
-  /* padding: 3rem 0rem; */
 }
 
 .author {

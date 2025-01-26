@@ -24,8 +24,6 @@
       padding: 0 1rem;
       transition: all 0.3s ease-in-out;
       filter: invert(1);
-      // filter: invert(35%) sepia(74%) saturate(207%) hue-rotate(322deg)
-      //   brightness(94%) contrast(88%);
 
       svg {
         max-width: 2.3rem;
@@ -89,8 +87,7 @@
       }
 
       &:hover {
-        box-shadow: $card-box-shadow-hover;
-        transform: translate(0, -2px);
+        background: $main-color-dark-hover;
       }
     }
   }

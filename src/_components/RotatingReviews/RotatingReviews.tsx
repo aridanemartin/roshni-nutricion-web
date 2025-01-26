@@ -20,6 +20,19 @@ export default function RotatingReviews() {
             </div>
           </section>
         ))}
+        {reviews.map((review, index) => (
+          <section key={index} className={styles.cslide}>
+            <div className={styles.imageWrap}>
+              <Image src={leftCuoteIcon} alt="Quotes Icon" fill />
+            </div>
+            <div className={styles.slideText}>{review.text}</div>
+            <div className={styles.grupoWrap}>
+              <p className={styles.author}>{review.autor}</p>
+              <p className={styles.extraido}>Comentario Extraido de</p>
+              <p className={styles.fuente}>{review.extraido}</p>
+            </div>
+          </section>
+        ))}
       </div>
     </div>
   )
