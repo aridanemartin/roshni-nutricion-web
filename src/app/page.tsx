@@ -81,9 +81,9 @@ export default async function Home() {
               </h2>
               <p>
                 Dietista-Nutricionista especializada en patologías digestivas en
-                Las Palmas de Gran Canaria. Ayudo a mis pacientes a alcanzar un
-                estado de salud óptimo, desde un punto de vista integrativo y
-                con un enfoque multidisciplinar.
+                Las Palmas de Gran Canaria. Mi objetivo es acompañar a mis
+                pacientes a alcanzar un estado de salud óptimo, a través de la
+                alimentación y el estilo de vida.
               </p>
               <Button text="Concertar una cita" href="/contacto" />
             </>
