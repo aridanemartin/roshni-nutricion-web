@@ -1,4 +1,6 @@
 .contact-form {
+  
+
   &__button-loader {
     width: 20px;
     height: 20px;
@@ -32,6 +34,39 @@
     padding: 2rem 0rem;
     font-size: 0.75rem;
     color: #ccc;
+  }
+
+  &__addresses{
+    display: flex;
+    gap: 2rem;
+
+    &-title{
+
+      margin-bottom: 2rem;
+
+    }
+
+    &-clinic{
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      line-height: auto;
+    }
+
+    address{
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 3rem;
+    }
+
+    span{
+      display: block;
+      padding: 0.25rem 0;
+
+      a{
+        color: rgba(108, 141, 84, 1);
+      }
+    }
   }
 }
 

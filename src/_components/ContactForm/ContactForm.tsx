@@ -117,6 +117,28 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="contact-form" noValidate>
+         <div className='contact-form__addresses-container'>
+        <p className='contact-form__addresses-title'>Reserva tu cita llamando al centro de tu elección o contactando directamente conmigo a través del siguiente formulario. </p>
+        <div className='contact-form__addresses'>
+        <address>
+        <h3 className='contact-form__addresses-clinic'>HPS:</h3>
+          <p>C/ León y Castillo, 407</p>
+          <p>35007 Las Palmas de Gran Canaria.</p>
+          <p>Teléfono:</p>
+          <span><a href="tel:+34928499900">928 499 900</a></span>
+        </address>
+        <address>
+        <h3 className='contact-form__addresses-clinic'>Cime:</h3>
+          <p>C. Fernando Guanarteme, 28, Bajo</p>
+          <p>35010 Las Palmas de Gran Canaria.</p>
+          <span>Teléfono:</span> 
+          <div className='contact-form__addresses-phones'>
+          <span><a href="tel:+34928091419">928 091 419</a></span>
+          <span><a href="https://wa.me/34635479745">635 479 745 (WhatsApp)</a></span>
+          </div>
+        </address>
+        </div>
+      </div>
       <Input
         type="text"
         name="name"
@@ -146,6 +168,8 @@ const ContactForm = () => {
         análisis estadísticos. Para más información sobre el tratamiento y sus
         derechos, consulte la política de privacidad
       </p>
+    
+    
     </form>
   )
 }
