@@ -6,7 +6,7 @@ import '@styles/Legal.scss'
 export default function PoliticaDeCookies() {
   return (
     <>
-      <Header title="Política de Cookies" image={banner} />
+      <Header image={banner} title="Política de Cookies" />
       <Layout>
         <div className="legalText">
           <h2 className="legalTextTitle">Política de Cookies</h2>

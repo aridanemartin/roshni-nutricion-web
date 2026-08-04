@@ -1,17 +1,17 @@
 import React from 'react'
-import './Input.scss'
+import PropTypes from 'prop-types'
+import '@components/Input/Input.scss'
 
-const Input = ({ name, type, value, onChange, placeholder, error }) => {
-  return (
+const Input = ({ name, type, value, onChange, placeholder, error }) => (
     <>
       <input
         className="input"
-        type={type}
         name={name}
-        value={value}
         onChange={onChange}
         placeholder={placeholder}
         style={{ borderColor: error ? 'red' : '' }}
+        type={type}
+        value={value}
       />
       {error && (
         <p className="input__error" style={{ color: 'red' }}>
@@ -20,6 +20,14 @@ const Input = ({ name, type, value, onChange, placeholder, error }) => {
       )}
     </>
   )
+
+Input.propTypes = {
+  error: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
 }
 
 export default Input

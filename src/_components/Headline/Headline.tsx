@@ -1,4 +1,4 @@
-import './Headline.scss'
+import '@components/Headline/Headline.scss'
 
 interface HeadlineProps {
   title: string
@@ -6,13 +6,11 @@ interface HeadlineProps {
   id?: string
 }
 
-const Headline = ({ title, subtitle, id }: HeadlineProps) => {
-  return (
+const Headline = ({ title, subtitle, id }: HeadlineProps) => (
     <div className="headline" id={id}>
       <h2 className="headline__title">{title}</h2>
       {subtitle && <p className="headline__subtitle">{subtitle}</p>}
     </div>
   )
-}
 
 export default Headline

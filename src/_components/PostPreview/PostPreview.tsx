@@ -1,23 +1,23 @@
 import React from 'react'
-import './PostPreview.scss'
+import PropTypes from 'prop-types'
+import '@components/PostPreview/PostPreview.scss'
 import { enhanceAltDescription } from '@utils/enhanceAltDescription'
 import Image from 'next/image'
 
-export const PostPreview = ({ post }) => {
-  return (
+export const PostPreview = ({ post }) => (
     <a
-      key={post.link}
       href={`${post.link}`}
-      target="_blank"
+      key={post.link}
       rel="noopener noreferrer"
+      target="_blank"
     >
       <div className="postPreview" key={post._id}>
         <div className="postPreview__image">
           <Image
-            className="postPreview__image-img"
-            src={post.image}
             alt={enhanceAltDescription(post.title)}
+            className="postPreview__image-img"
             fill
+            src={post.image}
           />
         </div>
         <div className="postPreview__text">
@@ -25,8 +25,8 @@ export const PostPreview = ({ post }) => {
             <h2 id={post.title}>{post.title}</h2>
           </div>
           <div
-            className="postPreview__description"
             aria-labelledby={post.title}
+            className="postPreview__description"
           >
             <p className="postPreview__description-text">{post.description}</p>
           </div>
@@ -35,11 +35,21 @@ export const PostPreview = ({ post }) => {
           <div className="postPreview__collaboration">
             <p>Colaborando con:</p>
             <div className="postPreview__collaborationLogo">
-              <Image alt="collaborationLogo" src={post.collaboratorLogo} fill />
+              <Image alt="collaborationLogo" fill src={post.collaboratorLogo} />
             </div>
           </div>
         )}
       </div>
     </a>
   )
+
+PostPreview.propTypes = {
+  post: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    collaboratorLogo: PropTypes.string,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
 }

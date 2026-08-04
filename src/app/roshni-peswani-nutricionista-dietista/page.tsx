@@ -1,7 +1,7 @@
+/* eslint-disable react-refresh/only-export-components */
 import '@styles/About.scss'
 import heroImage from '@assets/pictures/personal/roshniProfile3.webp'
 import Image from 'next/image'
-import ceuLogo from '@assets/logos/ceu.webp'
 import cimeLogo from '@assets/logos/cime.webp'
 import complutenseLogo from '@assets/logos/complutense.webp'
 import edriaLogo from '@assets/logos/edria.webp'
@@ -12,29 +12,12 @@ import unedLogo from '@assets/logos/uned.webp'
 import RotatingReviews from '@components/RotatingReviews/RotatingReviews'
 
 import type { Metadata } from 'next'
-import { PressGallery } from '@components/PressGallery/PressGallery'
-import sparArticle1 from '@assets/pictures/articles/sparArticle1.webp'
-import sparArticle2 from '@assets/pictures/articles/sparArticle2.webp'
-import { Title } from '@components/Title/Title'
 import Headline from '@components/Headline/Headline'
 
 export const metadata: Metadata = {
-  title: 'Sobre mi | Roshni Peswani Nutricionista - Dietista en Las Palmas',
   description: 'Roshni Peswani Nutricionista - Dietista en Las Palmas',
+  title: 'Sobre mi | Roshni Peswani Nutricionista - Dietista en Las Palmas',
 }
-
-const pressGalleryData = [
-  {
-    title: '<strong>SPAR:</strong> ¿Son útiles las Apps de Nutrición?"',
-    url: 'https://spargrancanaria.es/son-utiles-las-apps-de-nutricion/',
-    image: `${sparArticle1.src}`,
-  },
-  {
-    title: '<strong>SPAR:</strong> Alimentos ecológicos y bio',
-    url: 'https://spargrancanaria.es/alimentos-ecologicos-y-bio/',
-    image: `${sparArticle2.src}`,
-  },
-]
 
 export default function About() {
   return (
@@ -43,9 +26,9 @@ export default function About() {
         <section className="about__profile">
           <div className="about__profile-image">
             <Image
-              src={heroImage}
               alt="hero"
               fill
+              src={heroImage}
               style={{ objectFit: 'cover' }}
             />
           </div>
@@ -101,39 +84,39 @@ export default function About() {
           </div>
           <div className="about__logos">
             <div className="about__logo">
-              <Image src={unedLogo} alt="logo" width={50} height={100} />
+              <Image alt="logo" height={100} src={unedLogo} width={50} />
             </div>
             <div className="about__logo">
               <Image
-                src={complutenseLogo}
                 alt="logo"
-                width={100}
                 height={100}
+                src={complutenseLogo}
+                width={100}
               />
             </div>
             <div className="about__logo">
-              <Image src={cimeLogo} alt="logo" width={50} height={0} />
+              <Image alt="logo" height={0} src={cimeLogo} width={50} />
             </div>
             <div className="about__logo">
-              <Image src={edriaLogo} alt="logo" width={50} height={100} />
+              <Image alt="logo" height={100} src={edriaLogo} width={50} />
             </div>
             <div className="about__logo">
-              <Image src={freseniusLogo} alt="logo" width={100} height={100} />
+              <Image alt="logo" height={100} src={freseniusLogo} width={100} />
             </div>
             <div className="about__logo" style={{ filter: 'invert(1)' }}>
-              <Image src={hebeLogo} alt="logo" width={70} height={100} />
+              <Image alt="logo" height={100} src={hebeLogo} width={70} />
             </div>
             <div className="about__logo">
-              <Image src={hpsLogo} alt="logo" width={80} height={100} />
+              <Image alt="logo" height={100} src={hpsLogo} width={80} />
             </div>
           </div>
         </section>
       </div>
       <div className="about__reviewsSection">
         <Headline
-          title="Reseñas"
-          subtitle="A continuación, algunos testimonios de pacientes que han experimentado una mejora significativa en su salud y bienestar gracias a la atención personalizada de Roshni Peswani."
           id="reseñas"
+          subtitle="A continuación, algunos testimonios de pacientes que han experimentado una mejora significativa en su salud y bienestar gracias a la atención personalizada de Roshni Peswani."
+          title="Reseñas"
         />
         <RotatingReviews />
       </div>

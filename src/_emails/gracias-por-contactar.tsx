@@ -18,7 +18,7 @@ interface graciasPorContactarProps {
   name?: string
 }
 
-let domainUrl = 'https://roshninutricion.com'
+const domainUrl = 'https://roshninutricion.com'
 
 export const GraciasPorContactarEmail = ({
   name,
@@ -45,9 +45,9 @@ export const GraciasPorContactarEmail = ({
         <Container>
           <Section style={logo}>
             <Img
-              src="https://roshninutricion.com/static/logoVerde.png"
-              height="75"
               alt="Roshni Nutrición Logo"
+              height="75"
+              src="https://roshninutricion.com/static/logoVerde.png"
             />
           </Section>
 
@@ -57,10 +57,10 @@ export const GraciasPorContactarEmail = ({
               <Column>
                 <Heading
                   style={{
-                    fontSize: 32,
-                    textAlign: 'center',
-                    marginBottom: '0',
                     color: '#8eb86f',
+                    fontSize: 32,
+                    marginBottom: '0',
+                    textAlign: 'center',
                   }}
                 >
                   Estimado/a <b>{getName(name)}</b>,
@@ -68,17 +68,21 @@ export const GraciasPorContactarEmail = ({
                 <Heading
                   as="h2"
                   style={{
-                    fontSize: 26,
-                    textAlign: 'center',
-                    margin: 0,
                     color: '#8eb86f',
+                    fontSize: 26,
+                    margin: 0,
                     marginBottom: '2rem',
+                    textAlign: 'center',
                   }}
                 >
                   gracias por contactarnos
                 </Heading>
                 <Text
-                  style={{ ...paragraph, marginTop: -5, marginBottom: '3rem' }}
+                  style={{
+                    ...paragraph,
+                    marginBottom: '3rem',
+                    marginTop: -5,
+                  }}
                 >
                   Si necesitas hacer alguna pregunta adicional, no dudes en
                   escribirme a este correo electrónico
@@ -94,8 +98,8 @@ export const GraciasPorContactarEmail = ({
               </Column>
             </Row>
             <Row style={{ ...boxInfos, paddingTop: '0' }}>
-              <Column style={containerButton} colSpan={2}>
-                <Button style={button} href={domainUrl}>
+              <Column colSpan={2} style={containerButton}>
+                <Button href={domainUrl} style={button}>
                   Volver a la web
                 </Button>
               </Column>
@@ -103,9 +107,9 @@ export const GraciasPorContactarEmail = ({
           </Section>
           <Text
             style={{
-              textAlign: 'center',
-              fontSize: 12,
               color: 'rgb(0,0,0, 0.7)',
+              fontSize: 12,
+              textAlign: 'center',
             }}
           >
             © {`${year}`} | Roshni Peswani, Dietista - Nutricionista en Las
@@ -130,8 +134,8 @@ const paragraph = {
 
 const logo = {
   display: 'flex',
-  justifyContent: 'center',
   height: 'fit-content',
+  justifyContent: 'center',
   padding: '2rem 0',
 }
 
@@ -143,12 +147,12 @@ const containerButton = {
 
 const button = {
   backgroundColor: '#8eb86f',
-  padding: '12px 30px',
+  border: '1px solid rgb(0,0,0, 0.1)',
   borderRadius: 3,
   color: '#FFF',
-  fontWeight: 'bold',
-  border: '1px solid rgb(0,0,0, 0.1)',
   cursor: 'pointer',
+  fontWeight: 'bold',
+  padding: '12px 30px',
 }
 
 const content = {
@@ -163,8 +167,8 @@ const boxInfos = {
 
 const headerBackground = {
   backgroundImage: 'url(https://roshninutricion.com/static/roshniProfile2.png)',
-  backgroundSize: 'cover',
   backgroundPosition: '0 20%',
   backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
   height: '300px',
 }

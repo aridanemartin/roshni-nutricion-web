@@ -1,14 +1,24 @@
 import Link from 'next/link'
-import './SocialIcons.scss'
+import PropTypes from 'prop-types'
+import '@components/SocialIcons/SocialIcons.scss'
 
 export const SocialIcons = ({ socialLinks }) => (
   <div className="socialIcons">
     {socialLinks.map((link, index) => (
-      <div key={index} className="socialIcons__icon">
-        <Link href={link.href} target="_blank" rel="noreferrer">
+      <div className="socialIcons__icon" key={index}>
+        <Link href={link.href} rel="noreferrer" target="_blank">
           {link.icon}
         </Link>
       </div>
     ))}
   </div>
 )
+
+SocialIcons.propTypes = {
+  socialLinks: PropTypes.arrayOf(
+    PropTypes.shape({
+      href: PropTypes.string.isRequired,
+      icon: PropTypes.any.isRequired,
+    }),
+  ).isRequired,
+}

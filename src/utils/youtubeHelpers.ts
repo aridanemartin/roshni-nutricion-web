@@ -1,7 +1,7 @@
 export function getYoutubeVideoId(url) {
   // Extract the video ID from the URL using a regular expression
   const regExp =
-    /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+    /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
   const match = url.match(regExp);
 
   // If a match is found, return the video ID

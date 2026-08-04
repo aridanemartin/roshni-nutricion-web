@@ -1,4 +1,4 @@
-import './AriSignature.scss'
+import '@components/AriSignature/AriSignature.scss'
 
 export default function AriSignature() {
   return (
@@ -7,8 +7,8 @@ export default function AriSignature() {
         Website created by{' '}
         <a
           href="https://www.aridanemartin.dev"
-          target="_blank"
           rel="noreferrer"
+          target="_blank"
         >
           Aridane Martín
         </a>{' '}

@@ -5,8 +5,9 @@ import { Navigation } from 'swiper/modules'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
-import './Carousel.scss'
+import '@components/Carousel/Carousel.scss'
 import useViewportSize from 'src/_hooks/useViewportSize'
+import Image from 'next/image'
 
 export interface CarouselProps {
   spaceBetween?: number
@@ -36,19 +37,24 @@ const Carousel = ({ services, spaceBetween }: CarouselProps) => {
   return (
     <section className="carousel">
       <Swiper
-        spaceBetween={spaceBetween || 30}
-        slidesPerView={slidesPerView}
-        navigation
         modules={[Navigation]}
+        navigation
+        slidesPerView={slidesPerView}
+        spaceBetween={spaceBetween || 30}
       >
-        {services?.map((service, index) => (
+        {services?.map((service) => (
           <SwiperSlide key={service.alt}>
             <article className="carousel__slide">
               <div className="carousel__slide-title">
                 <h3>{service.title}</h3>
               </div>
               <div className="carousel__slide-image">
-                <img src={service.img} alt={service.alt} />
+                <Image
+                  alt={service.alt}
+                  height={200}
+                  src={service.img}
+                  width={200}
+                />
               </div>
               <ul>
                 {service.list.map((item, index) => (

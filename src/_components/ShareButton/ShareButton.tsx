@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import './ShareButton.scss'
+import '@components/ShareButton/ShareButton.scss'
 import {
   FacebookIcon,
   FacebookShareButton,
@@ -26,13 +26,13 @@ export const ShareButton = () => {
         <span className="shareButton__text">Compartir</span>
         <div className="container">
           <FacebookShareButton url={currentUrl}>
-            <FacebookIcon size={32} round />
+            <FacebookIcon round size={32} />
           </FacebookShareButton>
           <TwitterShareButton url={currentUrl}>
-            <XIcon size={32} round />
+            <XIcon round size={32} />
           </TwitterShareButton>
           <WhatsappShareButton url={currentUrl}>
-            <WhatsappIcon size={32} round />
+            <WhatsappIcon round size={32} />
           </WhatsappShareButton>
         </div>
       </div>

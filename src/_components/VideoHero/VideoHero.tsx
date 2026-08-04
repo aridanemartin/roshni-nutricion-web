@@ -1,11 +1,10 @@
 import React from 'react'
 
-export const VideoHero = () => {
-  return (
+export const VideoHero = () => (
     <div className='video-hero'>
         <video
-            className='video-hero__video'
             autoPlay
+            className='video-hero__video'
             loop
             muted
             playsInline
@@ -18,4 +17,3 @@ export const VideoHero = () => {
         </video>
         </div>
   )
-}

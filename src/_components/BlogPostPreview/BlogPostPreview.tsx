@@ -1,50 +1,53 @@
 import React from 'react'
-import './BlogPostPreview.scss'
+import PropTypes from 'prop-types'
+import '@components/BlogPostPreview/BlogPostPreview.scss'
 import { enhanceAltDescription } from '@utils/enhanceAltDescription'
 import Image from 'next/image'
 
-export const BlogPostPreview = ({ post }) => {
-  console.log(post)
-  return (
-    <a
-      key={post.link}
-      href={post.link}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <div className="blogPostPreview" key={post._id}>
-        <div className="blogPostPreview__image">
-          <Image
-            className="blogPostPreview__image-img"
-            src={post.image}
-            alt={enhanceAltDescription(post.title)}
-            fill
-          />
-        </div>
-        <div className="blogPostPreview__title">
-          <h2 id={post.title}>{post.title}</h2>
-        </div>
-        <section
-          className="blogPostPreview__description"
-          aria-labelledby={post.title}
-        >
-          <p className="blogPostPreview__description-text">
-            {post.description}
-          </p>
-          {post.collaboratorLogo && (
-            <div className="blogPostPreview__collaboration">
-              <p>Colaborando con:</p>
-              <div className="blogPostPreview__collaborationLogo">
-                <Image
-                  alt="collaborationLogo"
-                  src={post.collaboratorLogo}
-                  fill
-                />
-              </div>
-            </div>
-          )}
-        </section>
+export const BlogPostPreview = ({ post }) => (
+  <a
+    href={post.link}
+    key={post.link}
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <div className="blogPostPreview" key={post._id}>
+      <div className="blogPostPreview__image">
+        <Image
+          alt={enhanceAltDescription(post.title)}
+          className="blogPostPreview__image-img"
+          fill
+          src={post.image}
+        />
       </div>
-    </a>
-  )
+      <div className="blogPostPreview__title">
+        <h2 id={post.title}>{post.title}</h2>
+      </div>
+      <section
+        aria-labelledby={post.title}
+        className="blogPostPreview__description"
+      >
+        <p className="blogPostPreview__description-text">{post.description}</p>
+        {post.collaboratorLogo && (
+          <div className="blogPostPreview__collaboration">
+            <p>Colaborando con:</p>
+            <div className="blogPostPreview__collaborationLogo">
+              <Image alt="collaborationLogo" fill src={post.collaboratorLogo} />
+            </div>
+          </div>
+        )}
+      </section>
+    </div>
+  </a>
+)
+
+BlogPostPreview.propTypes = {
+  post: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    collaboratorLogo: PropTypes.string,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
 }

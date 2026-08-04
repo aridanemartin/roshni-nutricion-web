@@ -18,7 +18,7 @@ interface automaticResponseEmailProps {
   email?: string
 }
 
-let domainUrl = 'https://roshninutricion.com'
+const domainUrl = 'https://roshninutricion.com'
 
 export const automaticResponseEmail = ({
   name,
@@ -47,9 +47,9 @@ export const automaticResponseEmail = ({
         <Container>
           <Section style={logo}>
             <Img
-              src={`${domainUrl}/static/logoVerde.png`}
-              height="75"
               alt="Roshni Nutrición Logo"
+              height="75"
+              src={`${domainUrl}/static/logoVerde.png`}
             />
           </Section>
 
@@ -59,10 +59,10 @@ export const automaticResponseEmail = ({
               <Column>
                 <Heading
                   style={{
-                    fontSize: 32,
-                    textAlign: 'center',
-                    marginBottom: '0',
                     color: '#8eb86f',
+                    fontSize: 32,
+                    marginBottom: '0',
+                    textAlign: 'center',
                   }}
                 >
                   Mensaje de <b>{getName(name)}</b>,
@@ -70,11 +70,11 @@ export const automaticResponseEmail = ({
                 <Heading
                   as="h2"
                   style={{
-                    fontSize: 18,
-                    textAlign: 'center',
-                    margin: 0,
                     color: '#8eb86f',
+                    fontSize: 18,
+                    margin: 0,
                     marginBottom: '2rem',
+                    textAlign: 'center',
                   }}
                 >
                   {email}
@@ -85,9 +85,9 @@ export const automaticResponseEmail = ({
           </Section>
           <Text
             style={{
-              textAlign: 'center',
-              fontSize: 12,
               color: 'rgb(0,0,0, 0.7)',
+              fontSize: 12,
+              textAlign: 'center',
             }}
           >
             © {`${year}`} | Roshni Peswani, Dietista - Nutricionista en Las
@@ -112,25 +112,9 @@ const paragraph = {
 
 const logo = {
   display: 'flex',
-  justifyContent: 'center',
   height: 'fit-content',
-  padding: '2rem 0',
-}
-
-const containerButton = {
-  display: 'flex',
   justifyContent: 'center',
-  width: '100%',
-}
-
-const button = {
-  backgroundColor: '#8eb86f',
-  padding: '12px 30px',
-  borderRadius: 3,
-  color: '#FFF',
-  fontWeight: 'bold',
-  border: '1px solid rgb(0,0,0, 0.1)',
-  cursor: 'pointer',
+  padding: '2rem 0',
 }
 
 const content = {
@@ -145,8 +129,8 @@ const boxInfos = {
 
 const headerBackground = {
   backgroundImage: `url(${domainUrl}/static/roshniProfile2.png)`,
-  backgroundSize: 'cover',
   backgroundPosition: '0 20%',
   backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
   height: '300px',
 }

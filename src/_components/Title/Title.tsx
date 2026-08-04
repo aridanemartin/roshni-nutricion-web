@@ -1,7 +1,7 @@
 import React from 'react'
 
 type headingTypes = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-import './TitleComponent.scss'
+import '@components/Title/TitleComponent.scss'
 
 interface TitleProps {
   children: React.ReactNode

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const useIsMobile = (px_width: number) => {
+const useIsMobile = (pxWidth: number) => {
   const [width, setWidth] = useState<number>(0)
   const [isMobile, setIsMobile] = useState(false)
   function handleWindowSizeChange() {
@@ -17,8 +17,8 @@ const useIsMobile = (px_width: number) => {
   }, [width])
 
   useEffect(() => {
-    setIsMobile(width <= px_width)
-  }, [px_width, width])
+    setIsMobile(width <= pxWidth)
+  }, [pxWidth, width])
 
   if (isMobile === null) {
     return false

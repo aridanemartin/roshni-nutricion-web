@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import './Footer.scss'
+import '@components/Footer/Footer.scss'
 
-import { InstagramIcon } from '@components/SocialIcon/InstagramIcon'
 import { DoctoraliaIcon } from '@components/SocialIcon/DoctoraliaIcon'
+import { InstagramIcon } from '@components/SocialIcon/InstagramIcon'
 import { LinkedinIcon } from '@components/SocialIcon/LinkedinIcon'
 import { WhatsappIcon } from '@components/SocialIcon/WhatsappIcon'
 
@@ -31,7 +31,7 @@ export default function Footer() {
       <div className="footer__content">
         <div className="footer__socialIcons">
           {socialLinks.map((link, index) => (
-            <Link key={index} href={link.href} target="_blank" rel="noreferrer">
+            <Link href={link.href} key={index} rel="noreferrer" target="_blank">
               <div className="socialIcon">{link.icon}</div>
             </Link>
           ))}
@@ -39,7 +39,7 @@ export default function Footer() {
 
         <div className="footer__cita">
           <div className="footer__cita-button">
-            <Link href="/contacto" className="Button">
+            <Link className="Button" href="/contacto">
               Concertar cita
             </Link>
           </div>

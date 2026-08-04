@@ -1,16 +1,16 @@
+/* eslint-disable react-refresh/only-export-components */
 import ContactForm from '@components/ContactForm/ContactForm'
 import type { Metadata } from 'next'
 
 import '@styles/Contacto.scss'
 
 export const metadata: Metadata = {
+  description: 'Roshni Peswani, Dietista Nutricionista en Las Palmas',
   title:
     'Contacto | Roshni Peswani Nutricionista / Dietista en Las Palmas de Gran Canaria',
-  description: 'Roshni Peswani, Dietista Nutricionista en Las Palmas',
 }
 
-const Contacto = () => {
-  return (
+const Contacto = () => (
     <main className="main-layout">
       <div className="contacto">
         <section className="contacto__form-section">
@@ -21,6 +21,5 @@ const Contacto = () => {
       </div>
     </main>
   )
-}
 
 export default Contacto

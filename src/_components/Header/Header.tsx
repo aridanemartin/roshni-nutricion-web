@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Image from 'next/image'
 import { enhanceAltDescription } from '@utils/enhanceAltDescription'
-import './Header.scss'
+import '@components/Header/Header.scss'
 
 export default function Header({ title, image }) {
   const altDescription = enhanceAltDescription(
@@ -12,13 +13,18 @@ export default function Header({ title, image }) {
     <div className="postImageHero">
       <h1 className="postImageHero__title">{title}</h1>
       <Image
-        src={image}
-        className="imageHero"
         alt={altDescription}
-        quality={50}
+        className="imageHero"
         fill
         priority
+        quality={50}
+        src={image}
       />
     </div>
   )
+}
+
+Header.propTypes = {
+  image: PropTypes.any.isRequired,
+  title: PropTypes.string.isRequired,
 }

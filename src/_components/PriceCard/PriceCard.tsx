@@ -1,10 +1,10 @@
 import Image from 'next/image'
-import './PriceCard.scss'
+import '@components/PriceCard/PriceCard.scss'
 import SanityBlock from '@components/SanityBlock/SanityBlock'
 
 interface PriceCardProps {
   title: string
-  description: any
+  description: Array<{ _key: string }>
   price: number
   priceDiscount: number
 
@@ -19,13 +19,11 @@ export const PriceCard = ({
 
   icon,
 }: PriceCardProps) => {
-  const renderDiscountBadge = () => {
-    return (
+  const renderDiscountBadge = () => (
       <div className="priceCard__discountBadge">
         <p>Ahorra {priceDiscount}€</p>
       </div>
     )
-  }
 
   const renderPrice = () => {
     if (priceDiscount) {
@@ -57,7 +55,7 @@ export const PriceCard = ({
           priceDiscount ? 'priceCard__image-discount' : ''
         }`}
       >
-        <Image src={icon} fill alt="Con Nutricion Saludable - Tarifas" />
+        <Image alt="Con Nutricion Saludable - Tarifas" fill src={icon} />
       </div>
       <h2 className="priceCard__title">{title}</h2>
       <div className="priceCard__price">{renderPrice()}</div>
@@ -65,9 +63,7 @@ export const PriceCard = ({
         <strong>{duration}</strong> min.
       </p> */}
       <div className="priceCard__description">
-        {description.map((block) => {
-          return <SanityBlock key={block._key} sanityContent={block} />
-        })}
+        {description.map((block) => <SanityBlock key={block._key} sanityContent={block} />)}
       </div>
     </article>
   )

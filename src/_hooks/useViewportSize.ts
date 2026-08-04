@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react'
 
 const useViewportSize = () => {
   const [size, setSize] = useState({
-    width: window.innerWidth,
     height: window.innerHeight,
+    width: window.innerWidth,
   })
 
   const handleViewportSizeChange = () => {
     setSize({
-      width: window.innerWidth,
       height: window.innerHeight,
+      width: window.innerWidth,
     })
   }
 

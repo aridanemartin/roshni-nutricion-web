@@ -1,15 +1,15 @@
-import React from 'react'
-import Image from 'next/image'
 import heroImage from '@assets/pictures/blog3.webp'
+import Image from 'next/image'
+import React from 'react'
 
-import './HeroTemplate.scss'
+import '@components/HeroTemplate/HeroTemplate.scss'
 import Link from 'next/link'
 
 export default function HeroTemplate() {
   return (
     <div className="hero">
       <div className="hero__image">
-        <Image src={heroImage} alt="hero" fill style={{ objectFit: 'cover' }} />
+        <Image alt="hero" fill src={heroImage} style={{ objectFit: 'cover' }} />
       </div>
       <div className="hero__text-content">
         <h1>
@@ -27,7 +27,7 @@ export default function HeroTemplate() {
           <p>
             Haz clic ahora para empezar tu viaje hacia una vida más saludable.
           </p>
-          <Link href="/contacto" className="Button">
+          <Link className="Button" href="/contacto">
             <button className="hero__button">Concertar cita</button>
           </Link>
         </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import './ContactForm.scss'
+import '@components/ContactForm/ContactForm.scss'
 import Input from '@components/Input/Input'
 import Textarea from '@components/Textarea/Textarea'
 import checkMark from '@assets/icons/check.webp'
@@ -12,15 +12,15 @@ const ContactForm = () => {
   const [isEmailSent, setIsEmailSent] = useState(false)
   const [isFatalError, setIsFatalError] = useState(false)
   const [formData, setFormData] = useState({
-    name: '',
     email: '',
     message: '',
+    name: '',
   })
 
   const [formErrors, setFormErrors] = useState({
-    name: '',
     email: '',
     message: '',
+    name: '',
   })
 
   const handleChange = (e) => {
@@ -33,15 +33,14 @@ const ContactForm = () => {
     const newErrors = { ...formErrors }
 
     const fieldSpanishNames = {
-      name: 'nombre y apellidos',
       email: 'email',
       message: 'mensaje',
+      name: 'nombre y apellidos',
     }
 
     // Check if each field is filled
     Object.keys(formData).forEach((field) => {
       if (formData[field].trim() === '') {
-        console.log(field)
         newErrors[
           field
         ] = `Por favor introduzca su ${fieldSpanishNames[field]}.`
@@ -63,11 +62,11 @@ const ContactForm = () => {
     setIsLoading(true)
     try {
       const response = await fetch('/api/send-email', {
-        method: 'POST',
+        body: JSON.stringify(formData),
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        method: 'POST',
       })
 
       if (!response.ok) {
@@ -75,12 +74,12 @@ const ContactForm = () => {
       }
 
       setFormData({
-        name: '',
         email: '',
         message: '',
+        name: '',
       })
       setIsEmailSent(true)
-    } catch (error) {
+    } catch {
       setIsFatalError(true)
     } finally {
       setIsLoading(false)
@@ -99,7 +98,7 @@ const ContactForm = () => {
         <button className="contact-form__button-email-sent" disabled>
           Enviado
           <span className="check">
-            <Image src={checkMark} alt="check" width={25} height={25} />
+            <Image alt="check" height={25} src={checkMark} width={25} />
           </span>
         </button>
       )
@@ -116,7 +115,7 @@ const ContactForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="contact-form" noValidate>
+    <form className="contact-form" noValidate onSubmit={handleSubmit}>
          <div className='contact-form__addresses-container'>
         <p className='contact-form__addresses-title'>Reserva tu cita llamando al centro de tu elección o contactando directamente conmigo a través del siguiente formulario. </p>
         <div className='contact-form__addresses'>
@@ -140,27 +139,27 @@ const ContactForm = () => {
         </div>
       </div>
       <Input
-        type="text"
+        error={formErrors.name}
         name="name"
-        value={formData.name}
         onChange={handleChange}
         placeholder="Nombre y Apellidos"
-        error={formErrors.name}
+        type="text"
+        value={formData.name}
       />
       <Input
-        type="email"
+        error={formErrors.email}
         name="email"
-        value={formData.email}
         onChange={handleChange}
         placeholder="email@ejemplo.com"
-        error={formErrors.email}
+        type="email"
+        value={formData.email}
       />
       <Textarea
+        error={formErrors.message}
         name="message"
-        value={formData.message}
         onChange={handleChange}
         placeholder="Escribe aquí tu mensaje"
-        error={formErrors.message}
+        value={formData.message}
       />
       {renderButton()}
       <p className="contact-form__privacy">

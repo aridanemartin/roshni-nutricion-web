@@ -1,7 +1,7 @@
 'use client'
 
-import './Nav.scss'
-import './Burger.scss'
+import '@components/Nav/Nav.scss'
+import '@components/Nav/Burger.scss'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -49,9 +49,9 @@ export default function Nav() {
   return (
     <>
       <button
-        onClick={toggle}
         className={`burger ${isOpen ? 'open' : ''}`}
         id="burger"
+        onClick={toggle}
       >
         <span
           className={`burger__span ${
@@ -77,11 +77,11 @@ export default function Nav() {
       <div className={isOpen ? 'nav' + ' ' + 'navOpen' : 'nav'}>
         <div className="navContent">
           <section className="navContent__leftSection">
-            <Link href="/" className="navContent__logo">
+            <Link className="navContent__logo" href="/">
               <Image
-                src={navLogo}
                 alt="Con Nutricion Saludable - Logo"
                 fill
+                src={navLogo}
                 style={{ objectFit: 'contain' }}
               />
             </Link>

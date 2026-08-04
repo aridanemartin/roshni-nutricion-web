@@ -1,4 +1,4 @@
-import post from './post-schema'
+import post from '@/sanity/schemas/post-schema'
 
 const schemas = [post]
 

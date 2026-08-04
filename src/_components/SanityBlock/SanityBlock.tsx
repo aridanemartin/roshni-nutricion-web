@@ -2,13 +2,13 @@ import Image from 'next/image'
 import React from 'react'
 import imageUrlBuilder from '@sanity/image-url'
 
-import './SanityBlock.scss'
+import '@components/SanityBlock/SanityBlock.scss'
 import Link from 'next/link'
 
 import { getYoutubeVideoId } from '@utils/youtubeHelpers'
 import { sanityClient } from 'src/sanity/utils/sanity-querys'
 
-function SanityBlock({ sanityContent, key }) {
+function SanityBlock({ sanityContent }) {
   const builder = imageUrlBuilder(sanityClient)
   function imageUrlFor(source) {
     return builder.image(source)
@@ -45,11 +45,11 @@ function SanityBlock({ sanityContent, key }) {
 
       return (
         <Link
-          className={`sanityBlock__paragraph sanityBlock__link`}
+          className={'sanityBlock__paragraph sanityBlock__link'}
           href={`https://${link.href}`}
-          target="_blank"
-          rel="noReferrer"
           key={child._key}
+          rel="noReferrer"
+          target="_blank"
         >
           {child.text}
         </Link>
@@ -101,10 +101,10 @@ function SanityBlock({ sanityContent, key }) {
         return (
           <div className="sanityBlock__imageBlockHorizontal">
             <Image
-              src={imageUrlFor(sanityContent.image.asset).url()}
-              fill
-              style={{ objectFit: 'cover' }}
               alt={sanityContent.alt}
+              fill
+              src={imageUrlFor(sanityContent.image.asset).url()}
+              style={{ objectFit: 'cover' }}
             />
           </div>
         )
@@ -112,10 +112,10 @@ function SanityBlock({ sanityContent, key }) {
         return (
           <div className="sanityBlock__imageBlockVertical">
             <Image
-              src={imageUrlFor(sanityContent.image.asset).url()}
-              fill
-              style={{ objectFit: 'contain' }}
               alt={sanityContent.alt}
+              fill
+              src={imageUrlFor(sanityContent.image.asset).url()}
+              style={{ objectFit: 'contain' }}
             />
           </div>
         )
@@ -123,12 +123,12 @@ function SanityBlock({ sanityContent, key }) {
         return (
           <div className="sanityBlock__videoBlock">
             <iframe
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen={true}
+              frameBorder="0"
               src={`https://www.youtube.com/embed/${getYoutubeVideoId(
                 sanityContent.url,
               )}`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen={true}
               title={sanityContent.title}
             ></iframe>
           </div>

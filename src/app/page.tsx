@@ -1,4 +1,4 @@
-import posts from '../app/blog/posts.json'
+import posts from '@/app/blog/posts.json'
 import { PostPreview } from '@components/PostPreview/PostPreview'
 import Headline from '@components/Headline/Headline'
 import HeroBanner from '@components/HeroBanner/HeroBanner'
@@ -14,49 +14,49 @@ import { Button } from '@components/Button/Button'
 import RotatingReviews from '@components/RotatingReviews/RotatingReviews'
 
 const Carousel = dynamic(() => import('@components/Carousel/Carousel'), {
-  ssr: false,
   loading: () => <p>Loading...</p>,
+  ssr: false,
 })
 
 const services = [
   {
-    title: 'Salud Digestiva',
+    alt: 'Estómago',
+    img: stomachIcon.src,
     list: [
       'Digestiones lentas, hinchazón abdominal',
       'Gastritis / Reflujo',
       'Diarrea / Estreñimiento',
       'Sobrecrecimiento bacteriano',
     ],
-    img: stomachIcon.src,
-    alt: 'Estómago',
+    title: 'Salud Digestiva',
   },
   {
-    title: 'Intolerancias Alimentarias',
-    list: ['Lactosa', 'Fructosa / Sorbitol', 'Gluten', 'Histamina'],
-    img: intoleranceIcon.src,
     alt: 'Intolerancias',
+    img: intoleranceIcon.src,
+    list: ['Lactosa', 'Fructosa / Sorbitol', 'Gluten', 'Histamina'],
+    title: 'Intolerancias Alimentarias',
   },
   {
-    title: 'Enfermedades Autoinmunes',
-    list: ['Hipotiroidismo Hashimoto', 'Artritis Reumatoide', 'Psoriasis'],
-    img: autoinmuneIcon.src,
     alt: 'Autoinmunes',
+    img: autoinmuneIcon.src,
+    list: ['Hipotiroidismo Hashimoto', 'Artritis Reumatoide', 'Psoriasis'],
+    title: 'Enfermedades Autoinmunes',
   },
   {
-    title: 'Síndrome metabólico',
-    list: ['Obesidad', 'Diabetes', 'HTA'],
-    img: metabolicIcon.src,
     alt: 'Metabólico',
+    img: metabolicIcon.src,
+    list: ['Obesidad', 'Diabetes', 'HTA'],
+    title: 'Síndrome metabólico',
   },
   {
-    title: 'Composición Corporal',
+    alt: 'Composición Corporal',
+    img: bodyCompositionIcon.src,
     list: [
       'Pérdida de peso',
       'Ganancia de masa muscular',
       'Definición muscular',
     ],
-    img: bodyCompositionIcon.src,
-    alt: 'Composición Corporal',
+    title: 'Composición Corporal',
   },
 ]
 
@@ -65,15 +65,12 @@ export default async function Home() {
 
   return (
     <>
-      <HeroBanner
-        description="Diestista-Nutricionista en Las Palmas de Gran Canaria"
-        buttonComponent="hola"
-      />
+      <HeroBanner />
       <main className="main-layout">
         <PictureSection
-          pictureSrc={RoshniProfilePicture}
-          picturePosition="left"
           objectPosition="0 35%"
+          picturePosition="left"
+          pictureSrc={RoshniProfilePicture}
           text={
             <>
               <h2>
@@ -85,29 +82,27 @@ export default async function Home() {
                 pacientes a alcanzar un estado de salud óptimo, a través de la
                 alimentación y el estilo de vida.
               </p>
-              <Button text="Concertar una cita" href="/contacto" />
+              <Button href="/contacto" text="Concertar una cita" />
             </>
           }
         />
         <Headline
-          title="Últimos Posts"
           subtitle="Mantente al día con las tendencias en nutrición a través de nuestro blog. Descubre recetas innovadoras, consejos expertos y noticias sobre bienestar que te guiarán hacia un estilo de vida más saludable."
+          title="Últimos Posts"
         />
         <div className="latestPosts">
-          {latestPosts.map((post) => {
-            return <PostPreview key={post.id} post={post} />
-          })}
+          {latestPosts.map((post) => <PostPreview key={post.id} post={post} />)}
         </div>
         <Headline
-          title="Servicios"
-          subtitle="Descubre cómo la Nutrición Personalizada puede transformar tu bienestar en cada etapa de la vida. Complementa esto con nuestra Nutrición Clínica, que aborda condiciones como obesidad, diabetes y alergias con un enfoque integral."
           id="servicios"
+          subtitle="Descubre cómo la Nutrición Personalizada puede transformar tu bienestar en cada etapa de la vida. Complementa esto con nuestra Nutrición Clínica, que aborda condiciones como obesidad, diabetes y alergias con un enfoque integral."
+          title="Servicios"
         />
         <Carousel services={services} />
         <Headline
-          title="Reseñas"
-          subtitle="A continuación, algunos testimonios de pacientes que han experimentado una mejora significativa en su salud y bienestar gracias a la atención personalizada de Roshni Peswani."
           id="reseñas"
+          subtitle="A continuación, algunos testimonios de pacientes que han experimentado una mejora significativa en su salud y bienestar gracias a la atención personalizada de Roshni Peswani."
+          title="Reseñas"
         />
         <RotatingReviews />
       </main>

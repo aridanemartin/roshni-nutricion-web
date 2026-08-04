@@ -1,14 +1,14 @@
 import { createClient, groq } from 'next-sanity'
-import schemas from '../schemas'
+import schemas from '@/sanity/schemas'
 
 // import { Project } from '@/types/Project'
 
 // import { Page } from '@/types/Page'
 
 const config = {
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || '',
   apiVersion: '2023-03-09',
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || '',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
   schema: { types: schemas },
   useCdn: false,
 }

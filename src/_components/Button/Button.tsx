@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import './Button.scss'
+import '@components/Button/Button.scss'
 
 interface ButtonProps {
   text: string

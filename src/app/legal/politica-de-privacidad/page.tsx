@@ -6,7 +6,7 @@ import '@styles/Legal.scss'
 export default function PoliticaDePrivacidad() {
   return (
     <>
-      <Header title="Política de Privacidad" image={banner} />
+      <Header image={banner} title="Política de Privacidad" />
       <Layout>
         <div className="legalText">
           <h2>1. INFORMACIÓN AL USUARIO</h2>

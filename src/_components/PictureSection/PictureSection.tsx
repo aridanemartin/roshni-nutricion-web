@@ -1,5 +1,5 @@
-import React, { ReactComponentElement } from 'react'
-import './PictureSection.scss'
+import React from 'react'
+import '@components/PictureSection/PictureSection.scss'
 import Image, { StaticImageData } from 'next/image'
 
 type PicturePosition = 'left' | 'right'
@@ -7,7 +7,7 @@ type PicturePosition = 'left' | 'right'
 interface PictureSectionProps {
   pictureSrc: StaticImageData
   picturePosition: PicturePosition
-  text: ReactComponentElement<any>
+  text: React.ReactElement
   objectPosition?: string
 }
 
@@ -16,20 +16,18 @@ const PictureSection = ({
   picturePosition,
   text,
   objectPosition = 'center',
-}: PictureSectionProps) => {
-  return (
+}: PictureSectionProps) => (
     <div className={`picture-section picture-section__${picturePosition}`}>
       <div className="picture-section__picture-wrapper">
         <Image
+          alt="Picture"
           className="picture-section__picture"
           src={pictureUrl}
-          alt="Picture"
           style={{ objectPosition: `${objectPosition}` }}
         />
       </div>
       <div className="picture-section__text">{text}</div>
     </div>
   )
-}
 
 export default PictureSection

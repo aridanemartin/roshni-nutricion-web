@@ -6,7 +6,7 @@ import '@styles/Legal.scss'
 export default function AvisoLegal() {
   return (
     <div className="legal">
-      <Header title="Aviso Legal" image={banner} />
+      <Header image={banner} title="Aviso Legal" />
       <Layout maxWidth="1450px">
         <div className="legalText">
           <section>

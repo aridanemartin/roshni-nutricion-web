@@ -1,19 +1,14 @@
-interface IconProps {
-  color?: string
-}
-
-export const InstagramIcon = ({ color }: IconProps) => {
-  return (
+export const InstagramIcon = () => (
     <svg
       fill="#000000"
-      version="1.1"
+      height="30px"
       id="Layer_1"
+      version="1.1"
+      viewBox="0 0 169.063 169.063"
+      width="30px"
+      xmlSpace="preserve"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      height="30px"
-      width="30px"
-      viewBox="0 0 169.063 169.063"
-      xmlSpace="preserve"
     >
       <g>
         <path
@@ -35,4 +30,3 @@ export const InstagramIcon = ({ color }: IconProps) => {
       </g>
     </svg>
   )
-}
