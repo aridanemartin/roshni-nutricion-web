@@ -69,8 +69,10 @@ const ContactForm = () => {
         method: 'POST',
       })
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok')
+      const data = await response.json()
+
+      if (!response.ok || !data.success) {
+        throw new Error(data?.error ?? 'Network response was not ok')
       }
 
       setFormData({
@@ -84,6 +86,10 @@ const ContactForm = () => {
     } finally {
       setIsLoading(false)
     }
+  }
+
+  const handleRetry = () => {
+    setIsFatalError(false)
   }
 
   const renderButton = () => {
@@ -104,10 +110,58 @@ const ContactForm = () => {
       )
     } else if (isFatalError) {
       return (
-        <p className="contact-form__email-error">
-          El servicio de envío de emails no está disponible en este momento.
-          Recuerde que puede contactarnos por teléfono o whatsapp.
-        </p>
+        <div className="contact-form__error" role="alert">
+          <svg
+            aria-hidden="true"
+            className="contact-form__error-icon"
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <circle cx="12" cy="12" fill="currentColor" opacity="0.15" r="12" />
+            <path
+              d="M12 7v6"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeWidth="2"
+            />
+            <circle cx="12" cy="16.5" fill="currentColor" r="1.25" />
+          </svg>
+          <div className="contact-form__error-content">
+            <p className="contact-form__error-title">
+              No hemos podido enviar tu mensaje
+            </p>
+            <p className="contact-form__error-text">
+              El servicio de envío de emails no está disponible en este
+              momento. Puedes contactarnos directamente por email o teléfono:
+            </p>
+            <div className="contact-form__error-actions">
+              <a
+                className="contact-form__error-link"
+                href="mailto:roshninutricion@gmail.com"
+              >
+                roshninutricion@gmail.com
+              </a>
+              <a className="contact-form__error-link" href="tel:+34928499900">
+                928 499 900
+              </a>
+              <a
+                className="contact-form__error-link"
+                href="https://wa.me/34635479745"
+              >
+                635 479 745 (WhatsApp)
+              </a>
+            </div>
+            <button
+              className="contact-form__error-retry"
+              onClick={handleRetry}
+              type="button"
+            >
+              Volver a intentarlo
+            </button>
+          </div>
+        </div>
       )
     } else {
       return <button type="submit">Enviar</button>

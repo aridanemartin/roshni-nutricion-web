@@ -24,9 +24,71 @@
     }
   }
 
-  &__email-error {
-    color: red;
+  &__error {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
     margin-top: 0.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #fdecec;
+    border: 1px solid #f5c2c2;
+
+    &-icon {
+      flex-shrink: 0;
+      color: #c62828;
+      margin-top: 0.15rem;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    &-title {
+      font-weight: 600;
+      color: #c62828;
+      margin: 0;
+    }
+
+    &-text {
+      margin: 0;
+      color: #7a1f1f;
+    }
+
+    &-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1rem;
+      margin-top: 0.25rem;
+    }
+
+    &-link {
+      color: rgba(108, 141, 84, 1);
+      font-weight: 600;
+      text-decoration: underline;
+
+      &:hover {
+        color: rgba(108, 141, 84, 0.8);
+      }
+    }
+
+    &-retry {
+      align-self: flex-start;
+      margin-top: 0.5rem;
+      background: none;
+      border: none;
+      padding: 0;
+      color: #c62828;
+      font-size: 0.85rem;
+      text-decoration: underline;
+      cursor: pointer;
+
+      &:hover {
+        color: #7a1f1f;
+      }
+    }
   }
 
   &__privacy {

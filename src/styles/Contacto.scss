@@ -42,6 +42,10 @@
       height: 10rem;
     }
 
+    .contact-form__error {
+      width: 90%;
+    }
+
     button {
       height: 3rem;
       font-family: $sourceSans;
@@ -98,7 +102,8 @@
       input,
       textarea,
       button,
-      h1 {
+      h1,
+      .contact-form__error {
         align-self: center;
         width: 60%;
       }
@@ -163,7 +168,8 @@
       input,
       textarea,
       button,
-      h1 {
+      h1,
+      .contact-form__error {
         align-self: center;
         width: 60%;
       }
