@@ -1,110 +1,151 @@
-.burger,
-.close {
+.toggle {
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
+  display: none;
   width: 44px;
   height: 44px;
   padding: 0;
-  border: 1px solid var(--dark-line);
+  border: 0;
   background: transparent;
   cursor: pointer;
 }
 
-.burger {
-  display: none;
-}
-
-.burger span,
-.close span {
+.toggle span {
   position: absolute;
   right: 12px;
   left: 12px;
   height: 1.5px;
   background: var(--paper);
+  transition:
+    top 0.3s var(--ease),
+    transform 0.3s var(--ease),
+    opacity 0.2s var(--ease);
 }
 
-.burger span:nth-child(1) {
+.toggle span:nth-child(1) {
   top: 15px;
 }
 
-.burger span:nth-child(2) {
+.toggle span:nth-child(2) {
   top: 21px;
 }
 
-.burger span:nth-child(3) {
+.toggle span:nth-child(3) {
   top: 27px;
 }
 
-.close span {
+/* The burger folds into an X, in place — same button, no second instance */
+.toggle[data-open='true'] span:nth-child(1) {
   top: 21px;
-}
-
-.close span:nth-child(1) {
   transform: rotate(45deg);
 }
 
-.close span:nth-child(2) {
+.toggle[data-open='true'] span:nth-child(2) {
+  opacity: 0;
+}
+
+.toggle[data-open='true'] span:nth-child(3) {
+  top: 21px;
   transform: rotate(-45deg);
 }
 
-.burger:focus-visible,
-.close:focus-visible {
+.toggle:focus-visible {
   outline-color: var(--leaf);
 }
 
 .menu {
-  width: 100%;
-  max-width: none;
-  height: 100%;
-  max-height: none;
-  margin: 0;
-  padding: calc(14px + env(safe-area-inset-top, 0px)) 20px
-    calc(24px + env(safe-area-inset-bottom, 0px));
-  border: 0;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Anchored to the sticky header (nearest positioned ancestor) so it drops
+     from the header's bottom edge, whatever the scroll position. */
+  position: absolute;
+  top: calc(100% + 1px);
+  right: 0;
+  left: 0;
+  z-index: 5;
+  display: none;
+  flex-direction: column;
+  height: calc(
+    100dvh - var(--header-height) - 1px - env(safe-area-inset-top, 0px)
+  );
+  padding: 12px 20px calc(24px + env(safe-area-inset-bottom, 0px));
+  overflow-y: auto;
   background: var(--ink);
   color: var(--paper);
+
+  /* Entry/exit: fade + slide, keeping it painted until the discrete
+     display flip (allow-discrete) hands it back to `none`. */
+  opacity: 0;
+  transform: translateY(-16px);
+  transition:
+    opacity 0.32s var(--ease),
+    transform 0.4s var(--ease),
+    display 0.4s allow-discrete;
 }
 
-.menu[open] {
+.menu[data-open='true'] {
   display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  animation: menu-in 0.25s ease-out;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@keyframes menu-in {
-  from {
+@starting-style {
+  .menu[data-open='true'] {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(-16px);
   }
-}
-
-.top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--dark-line);
 }
 
 .links {
   display: grid;
-  padding-block: 16px;
+  padding-block: 8px;
 }
 
 .links a {
   padding-block: 10px;
-  border-bottom: 1px solid var(--dark-line);
+  border-bottom: 1px solid rgb(var(--paper-rgb) / 0.14);
   color: var(--paper);
   font-family: var(--font-display);
   font-size: clamp(30px, 8vw, 40px);
   line-height: 1.15;
   text-decoration: none;
+
+  /* Each link rises into place, one after the next (see --i in NavLinks) */
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.4s var(--ease),
+    transform 0.4s var(--ease),
+    color 0.2s ease;
+}
+
+.menu[data-open='true'] .links a {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.4s var(--ease) calc(90ms + var(--i, 0) * 55ms),
+    transform 0.4s var(--ease) calc(90ms + var(--i, 0) * 55ms),
+    color 0.2s ease;
+}
+
+@starting-style {
+  .menu[data-open='true'] .links a {
+    opacity: 0;
+    transform: translateY(18px);
+  }
 }
 
 .links a:hover,
 .links a[aria-current='page'] {
   color: var(--leaf);
+}
+
+.cta,
+.social {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.4s var(--ease),
+    transform 0.4s var(--ease);
 }
 
 .cta {
@@ -117,8 +158,45 @@
   padding-top: 32px;
 }
 
+.menu[data-open='true'] .cta,
+.menu[data-open='true'] .social {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Trailing CTA + social follow the links in the same staggered rhythm */
+.menu[data-open='true'] .cta {
+  transition-delay: 480ms;
+}
+
+.menu[data-open='true'] .social {
+  transition-delay: 560ms;
+}
+
+@starting-style {
+  .menu[data-open='true'] .cta,
+  .menu[data-open='true'] .social {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
 @media (max-width: 860px) {
-  .burger {
+  .toggle {
     display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toggle span,
+  .menu,
+  .links a,
+  .cta,
+  .social,
+  .menu[data-open='true'] .links a,
+  .menu[data-open='true'] .cta,
+  .menu[data-open='true'] .social {
+    transition-duration: 0.01ms;
+    transition-delay: 0ms;
   }
 }

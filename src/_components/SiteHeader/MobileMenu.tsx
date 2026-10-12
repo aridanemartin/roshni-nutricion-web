@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { ROUTES } from '@/content/site'
 import { Button } from '@components/Button/Button'
 import NavLinks from '@components/SiteHeader/NavLinks'
@@ -9,78 +9,84 @@ import styles from '@components/SiteHeader/MobileMenu.module.css'
 type MobileMenuProps = {
   children: React.ReactNode
   links: { href: string; label: string }[]
-  logo: React.ReactNode
 }
 
-// A modal <dialog> gives focus trapping, Escape to close and inert background for free
-export default function MobileMenu({ children, links, logo }: MobileMenuProps) {
-  const dialogRef = useRef<HTMLDialogElement>(null)
+// One toggle that morphs burger <-> X in place, with the panel dropping in below
+// the header. We drive the open state ourselves (instead of a modal <dialog>) so
+// the header toggle stays interactive while the menu is open.
+export default function MobileMenu({ children, links }: MobileMenuProps) {
+  const [open, setOpen] = useState(false)
+  const toggleRef = useRef<HTMLButtonElement>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
 
-  const open = () => {
-    dialogRef.current?.showModal()
-    document.body.classList.add('menu-open')
-  }
+  const close = useCallback((restoreFocus = true) => {
+    setOpen(false)
+    if (restoreFocus) toggleRef.current?.focus()
+  }, [])
 
-  const close = () => dialogRef.current?.close()
-
+  // While open: lock scroll, hide the rest of the page from AT + tab order,
+  // and move focus into the menu.
   useEffect(() => {
-    const dialog = dialogRef.current
-    const onClose = () => document.body.classList.remove('menu-open')
-    // Any link inside the menu navigates, so close it on the way out
-    const onClick = (event: MouseEvent) => {
-      if ((event.target as Element).closest('a')) dialog?.close()
+    if (!open) return
+    const regions = document.querySelectorAll('main, footer')
+    regions.forEach((el) => el.setAttribute('inert', ''))
+    document.body.classList.add('menu-open')
+    panelRef.current?.querySelector('a')?.focus({ preventScroll: true })
+    return () => {
+      regions.forEach((el) => el.removeAttribute('inert'))
+      document.body.classList.remove('menu-open')
+    }
+  }, [open])
+
+  // Escape closes; growing past the mobile breakpoint closes too
+  useEffect(() => {
+    if (!open) return
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') close()
     }
     const onResize = () => {
-      if (window.innerWidth > 860) dialog?.close()
+      if (window.innerWidth > 860) close(false)
     }
-    dialog?.addEventListener('close', onClose)
-    dialog?.addEventListener('click', onClick)
+    document.addEventListener('keydown', onKeyDown)
     window.addEventListener('resize', onResize)
     return () => {
-      dialog?.removeEventListener('close', onClose)
-      dialog?.removeEventListener('click', onClick)
+      document.removeEventListener('keydown', onKeyDown)
       window.removeEventListener('resize', onResize)
     }
-  }, [])
+  }, [open, close])
 
   return (
     <>
       <button
         aria-controls="mobile-menu"
-        aria-haspopup="dialog"
-        aria-label="Abrir menú"
-        className={styles.burger}
-        onClick={open}
+        aria-expanded={open}
+        aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+        className={styles.toggle}
+        data-open={open}
+        onClick={open ? () => close() : () => setOpen(true)}
+        ref={toggleRef}
         type="button"
       >
         <span />
         <span />
         <span />
       </button>
-      <dialog
-        aria-label="Menú"
+      <div
         className={styles.menu}
+        data-open={open}
         id="mobile-menu"
-        ref={dialogRef}
+        onClick={(event) => {
+          // Any link inside navigates, so close on the way out
+          if ((event.target as Element).closest('a')) setOpen(false)
+        }}
+        ref={panelRef}
       >
-        <div className={styles.top}>
-          {logo}
-          <button
-            aria-label="Cerrar menú"
-            className={styles.close}
-            onClick={close}
-            type="button"
-          >
-            <span />
-            <span />
-          </button>
-        </div>
         <NavLinks className={styles.links} links={links} />
         <Button className={styles.cta} href={ROUTES.contact} variant="leaf">
           Concertar cita →
         </Button>
         <div className={styles.social}>{children}</div>
-      </dialog>
+      </div>
     </>
   )
 }

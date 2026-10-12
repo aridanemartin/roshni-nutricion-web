@@ -34,7 +34,6 @@ export default function SiteHeader() {
           </Button>
           <MobileMenu
             links={[{ href: ROUTES.home, label: 'Inicio' }, ...NAV_LINKS]}
-            logo={<Logo className={styles.menuLogo} />}
           >
             <SocialIcons />
           </MobileMenu>
