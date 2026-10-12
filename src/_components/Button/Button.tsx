@@ -1,36 +1,44 @@
 import Link from 'next/link'
-import '@components/Button/Button.scss'
+import styles from '@components/Button/Button.module.css'
 
-interface ButtonProps {
-  text: string
-  onClick?: () => void
-  href?: string
-  baseClassName?: string
-  secondary?: boolean
+type ButtonProps = {
+  children: React.ReactNode
+  className?: string
+  href: string
+  /* solid: ink on light grounds · ghost: outlined on light grounds
+     leaf: brand green on dark grounds · line: outlined on dark grounds */
+  variant?: 'solid' | 'ghost' | 'leaf' | 'line'
 }
 
-export const Button = ({
-  text,
-  onClick,
-  href,
-  baseClassName,
-  secondary = false,
-}: ButtonProps) => {
-  const className = `button ${baseClassName} ${
-    secondary ? 'button-secondary' : 'button-primary'
-  }`
+const isExternal = (href: string) => /^(https?:|tel:|mailto:)/.test(href)
 
-  if (href) {
+export function Button({
+  children,
+  className,
+  href,
+  variant = 'solid',
+}: ButtonProps) {
+  const classes = [styles.button, styles[variant], className]
+    .filter(Boolean)
+    .join(' ')
+
+  if (isExternal(href)) {
+    const opensTab = href.startsWith('http')
     return (
-      <Link className={className} href={href}>
-        {text}
-      </Link>
+      <a
+        className={classes}
+        href={href}
+        rel={opensTab ? 'noopener noreferrer' : undefined}
+        target={opensTab ? '_blank' : undefined}
+      >
+        {children}
+      </a>
     )
   }
 
   return (
-    <button className={className} onClick={onClick}>
-      {text}
-    </button>
+    <Link className={classes} href={href}>
+      {children}
+    </Link>
   )
 }

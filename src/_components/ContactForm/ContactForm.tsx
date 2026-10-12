@@ -1,250 +1,147 @@
 'use client'
 
-import React, { useEffect, useRef, useState } from 'react'
-import '@components/ContactForm/ContactForm.scss'
-import Input from '@components/Input/Input'
-import Textarea from '@components/Textarea/Textarea'
-import checkMark from '@assets/icons/check.webp'
-import Image from 'next/image'
+import Link from 'next/link'
+import { useActionState, useEffect, useRef } from 'react'
+import {
+  type ContactState,
+  sendContactMessage,
+} from '@/app/(site)/contacto/actions'
+import { CLINICS, CONTACT_EMAIL, ROUTES } from '@/content/site'
+import buttonStyles from '@components/Button/Button.module.css'
+import styles from '@components/ContactForm/ContactForm.module.css'
 
-const ContactForm = () => {
-  const [isLoading, setIsLoading] = useState(false)
-  const [isEmailSent, setIsEmailSent] = useState(false)
-  const [isFatalError, setIsFatalError] = useState(false)
-  const startedAt = useRef(0)
-  const honeypot = useRef<HTMLInputElement>(null)
+const initialState: ContactState = { status: 'idle' }
 
+const fallbackContacts = [
+  { href: `mailto:${CONTACT_EMAIL}`, label: CONTACT_EMAIL },
+  ...CLINICS.flatMap((clinic) =>
+    clinic.phones.map((phone) => ({
+      href: phone.href,
+      label: phone.note ? `${phone.label} (${phone.note})` : phone.label,
+    })),
+  ),
+]
+
+export default function ContactForm() {
+  const [state, formAction, isPending] = useActionState(
+    sendContactMessage,
+    initialState,
+  )
+  const startedAt = useRef<HTMLInputElement>(null)
+
+  // Timestamp used by the server to reject forms submitted too fast to be human
   useEffect(() => {
-    startedAt.current = Date.now()
+    if (startedAt.current) startedAt.current.value = String(Date.now())
   }, [])
-  const [formData, setFormData] = useState({
-    email: '',
-    message: '',
-    name: '',
-  })
 
-  const [formErrors, setFormErrors] = useState({
-    email: '',
-    message: '',
-    name: '',
-  })
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-    setFormErrors({ ...formErrors, [e.target.name]: '' })
+  if (state.status === 'sent') {
+    return (
+      <div className={styles.form} role="status">
+        <h2 className={styles.doneTitle}>Mensaje enviado</h2>
+        <p className={styles.doneText}>Gracias por contactarnos.</p>
+      </div>
+    )
   }
 
-  const validateForm = () => {
-    let valid = true
-    const newErrors = { ...formErrors }
-
-    const fieldSpanishNames = {
-      email: 'email',
-      message: 'mensaje',
-      name: 'nombre y apellidos',
-    }
-
-    // Check if each field is filled
-    Object.keys(formData).forEach((field) => {
-      if (formData[field].trim() === '') {
-        newErrors[
-          field
-        ] = `Por favor introduzca su ${fieldSpanishNames[field]}.`
-        valid = false
-      }
-    })
-
-    setFormErrors(newErrors)
-    return valid
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    if (!validateForm()) {
-      return
-    }
-
-    setIsLoading(true)
-    try {
-      const response = await fetch('/api/send-email', {
-        body: JSON.stringify({
-          ...formData,
-          startedAt: startedAt.current,
-          website: honeypot.current?.value ?? '',
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-      })
-
-      const data = await response.json()
-
-      if (!response.ok || !data.success) {
-        throw new Error(data?.error ?? 'Network response was not ok')
-      }
-
-      setFormData({
-        email: '',
-        message: '',
-        name: '',
-      })
-      setIsEmailSent(true)
-    } catch {
-      setIsFatalError(true)
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
-  const handleRetry = () => {
-    setIsFatalError(false)
-  }
-
-  const renderButton = () => {
-    if (isLoading) {
-      return (
-        <button disabled>
-          <span className="contact-form__button-loader"></span>
-        </button>
-      )
-    } else if (isEmailSent) {
-      return (
-        <button className="contact-form__button-email-sent" disabled>
-          Enviado
-          <span className="check">
-            <Image alt="check" height={25} src={checkMark} width={25} />
-          </span>
-        </button>
-      )
-    } else if (isFatalError) {
-      return (
-        <div className="contact-form__error" role="alert">
-          <svg
-            aria-hidden="true"
-            className="contact-form__error-icon"
-            fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-          >
-            <circle cx="12" cy="12" fill="currentColor" opacity="0.15" r="12" />
-            <path
-              d="M12 7v6"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeWidth="2"
-            />
-            <circle cx="12" cy="16.5" fill="currentColor" r="1.25" />
-          </svg>
-          <div className="contact-form__error-content">
-            <p className="contact-form__error-title">
-              No hemos podido enviar tu mensaje
-            </p>
-            <p className="contact-form__error-text">
-              El servicio de envío de emails no está disponible en este
-              momento. Puedes contactarnos directamente por email o teléfono:
-            </p>
-            <div className="contact-form__error-actions">
-              <a
-                className="contact-form__error-link"
-                href="mailto:roshninutricion@gmail.com"
-              >
-                roshninutricion@gmail.com
-              </a>
-              <a className="contact-form__error-link" href="tel:+34928499900">
-                928 499 900
-              </a>
-              <a
-                className="contact-form__error-link"
-                href="https://wa.me/34635479745"
-              >
-                635 479 745 (WhatsApp)
-              </a>
-            </div>
-            <button
-              className="contact-form__error-retry"
-              onClick={handleRetry}
-              type="button"
-            >
-              Volver a intentarlo
-            </button>
-          </div>
-        </div>
-      )
-    } else {
-      return <button type="submit">Enviar</button>
-    }
-  }
+  const { errors = {}, values } = state
 
   return (
-    <form className="contact-form" noValidate onSubmit={handleSubmit}>
-         <div className='contact-form__addresses-container'>
-        <p className='contact-form__addresses-title'>Reserva tu cita llamando al centro de tu elección o contactando directamente conmigo a través del siguiente formulario. </p>
-        <div className='contact-form__addresses'>
-        <address>
-        <h3 className='contact-form__addresses-clinic'>HPS:</h3>
-          <p>C/ León y Castillo, 407</p>
-          <p>35007 Las Palmas de Gran Canaria.</p>
-          <p>Teléfono:</p>
-          <span><a href="tel:+34928499900">928 499 900</a></span>
-        </address>
-        <address>
-        <h3 className='contact-form__addresses-clinic'>Cime:</h3>
-          <p>C. Fernando Guanarteme, 28, Bajo</p>
-          <p>35010 Las Palmas de Gran Canaria.</p>
-          <span>Teléfono:</span> 
-          <div className='contact-form__addresses-phones'>
-          <span><a href="tel:+34928091419">928 091 419</a></span>
-          <span><a href="https://wa.me/34635479745">635 479 745 (WhatsApp)</a></span>
-          </div>
-        </address>
+    <form action={formAction} className={styles.form} noValidate>
+      {state.status === 'failed' && (
+        <div className={styles.alert} role="alert">
+          <p className={styles.alertTitle}>No hemos podido enviar tu mensaje</p>
+          <p>
+            El servicio de envío de emails no está disponible en este momento.
+            Puedes contactarnos directamente por email o teléfono:
+          </p>
+          <ul>
+            {fallbackContacts.map(({ href, label }) => (
+              <li key={href}>
+                <a href={href}>{label}</a>
+              </li>
+            ))}
+          </ul>
         </div>
+      )}
+
+      <div className={styles.field}>
+        <label htmlFor="contact-name">Nombre y Apellidos</label>
+        <input
+          aria-describedby={errors.name ? 'contact-name-error' : undefined}
+          aria-invalid={Boolean(errors.name)}
+          autoComplete="name"
+          defaultValue={values?.name}
+          id="contact-name"
+          maxLength={100}
+          name="name"
+          placeholder="Nombre y Apellidos"
+          type="text"
+        />
+        <span className={styles.error} id="contact-name-error">
+          {errors.name}
+        </span>
       </div>
-      <Input
-        error={formErrors.name}
-        name="name"
-        onChange={handleChange}
-        placeholder="Nombre y Apellidos"
-        type="text"
-        value={formData.name}
-      />
-      <Input
-        error={formErrors.email}
-        name="email"
-        onChange={handleChange}
-        placeholder="email@ejemplo.com"
-        type="email"
-        value={formData.email}
-      />
+
+      <div className={styles.field}>
+        <label htmlFor="contact-email">Email</label>
+        <input
+          aria-describedby={errors.email ? 'contact-email-error' : undefined}
+          aria-invalid={Boolean(errors.email)}
+          autoComplete="email"
+          defaultValue={values?.email}
+          id="contact-email"
+          name="email"
+          placeholder="email@ejemplo.com"
+          type="email"
+        />
+        <span className={styles.error} id="contact-email-error">
+          {errors.email}
+        </span>
+      </div>
+
       {/* Honeypot: hidden from people, bots fill it in */}
       <input
         aria-hidden="true"
         autoComplete="off"
-        className="contact-form__honeypot"
+        className={styles.honeypot}
         name="website"
-        ref={honeypot}
         tabIndex={-1}
         type="text"
       />
-      <Textarea
-        error={formErrors.message}
-        name="message"
-        onChange={handleChange}
-        placeholder="Escribe aquí tu mensaje"
-        value={formData.message}
-      />
-      {renderButton()}
-      <p className="contact-form__privacy">
+      <input name="startedAt" ref={startedAt} type="hidden" />
+
+      <div className={styles.field}>
+        <label htmlFor="contact-message">Mensaje</label>
+        <textarea
+          aria-describedby={
+            errors.message ? 'contact-message-error' : undefined
+          }
+          aria-invalid={Boolean(errors.message)}
+          defaultValue={values?.message}
+          id="contact-message"
+          maxLength={5000}
+          name="message"
+          placeholder="Escribe aquí tu mensaje"
+        />
+        <span className={styles.error} id="contact-message-error">
+          {errors.message}
+        </span>
+      </div>
+
+      <button
+        className={`${buttonStyles.button} ${buttonStyles.solid}`}
+        disabled={isPending}
+        type="submit"
+      >
+        {isPending ? 'Enviando…' : 'Enviar'}
+      </button>
+
+      <p className={styles.privacy}>
         Utilizaremos sus datos únicamente para responder consultas y realizar
         análisis estadísticos. Para más información sobre el tratamiento y sus
-        derechos, consulte la política de privacidad
+        derechos, consulte la{' '}
+        <Link href={ROUTES.privacy}>política de privacidad</Link>.
       </p>
-    
-    
     </form>
   )
 }
-
-export default ContactForm

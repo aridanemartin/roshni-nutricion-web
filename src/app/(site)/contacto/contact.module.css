@@ -1,0 +1,62 @@
+.clinics {
+  padding-block: clamp(48px, 7vw, 88px);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(32px, 5vw, 80px);
+  padding-block: clamp(56px, 8vw, 104px);
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 32px 0 0;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.social li {
+  flex: none;
+}
+
+.icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.icon svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.icon:hover {
+  border-color: var(--leaf-dark);
+  background: var(--leaf-dark);
+  color: var(--paper);
+}
+
+.icon:focus-visible {
+  outline-color: var(--leaf-dark);
+}
+
+@media (max-width: 860px) {
+  .contact {
+    grid-template-columns: 1fr;
+  }
+}

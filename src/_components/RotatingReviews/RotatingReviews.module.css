@@ -1,13 +1,10 @@
 .section {
   --gap: 1.25rem;
-  --green: #8eb86f;
-  --green-dark: #6c8d54;
+  --green: var(--leaf);
+  --green-dark: var(--leaf-dark);
 
-  box-sizing: border-box;
   width: 100%;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 1rem 3rem;
+  margin-top: 48px;
 }
 
 .grid {
@@ -67,11 +64,10 @@
   flex-direction: column;
   gap: 1.25rem;
   padding: 1.5rem;
-  border: 1px solid rgba(142, 184, 111, 0.25);
-  border-radius: 1rem;
-  background: #fff;
-  box-shadow: 0 4px 20px rgba(108, 141, 84, 0.08);
-  color: #333;
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--leaf-dark);
+  background: var(--paper);
+  color: var(--body);
   text-decoration: none;
   transition:
     border-color 0.25s ease,
@@ -80,8 +76,7 @@
 }
 
 .card:hover {
-  border-color: var(--green);
-  box-shadow: 0 8px 28px rgba(108, 141, 84, 0.18);
+  border-color: var(--leaf-dark);
   transform: translateY(-2px);
 }
 
@@ -117,14 +112,16 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background: var(--green);
-  color: #fff;
+  background: var(--leaf);
+  color: var(--ink);
   font-size: 0.9rem;
   font-weight: 600;
 }
 
 .author {
-  font-weight: 600;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 19px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

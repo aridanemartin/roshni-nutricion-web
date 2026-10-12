@@ -1,0 +1,111 @@
+.form {
+  display: grid;
+  align-self: start;
+  gap: 18px;
+  padding: clamp(24px, 4vw, 44px);
+  background: var(--paper);
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field label {
+  color: var(--mute);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-bottom-color: var(--ink);
+  border-radius: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font: inherit;
+}
+
+.field textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--leaf-dark);
+  outline: 2px solid var(--leaf-dark);
+  outline-offset: 0;
+}
+
+.field [aria-invalid='true'] {
+  border-color: var(--error);
+}
+
+.error {
+  min-height: 1em;
+  color: var(--error);
+  font-size: 13px;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
+.form button[disabled] {
+  border-color: var(--leaf-dark);
+  background: var(--leaf-dark);
+  cursor: progress;
+}
+
+.privacy {
+  color: var(--mute);
+  font-size: 13px;
+}
+
+.privacy a {
+  color: var(--leaf-dark);
+}
+
+.alert {
+  display: grid;
+  gap: 10px;
+  padding: 18px 20px;
+  border-left: 3px solid var(--error);
+  background: var(--ground);
+  color: var(--body);
+  font-size: 15px;
+}
+
+.alertTitle {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.alert ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.alert a {
+  color: var(--leaf-dark);
+  font-weight: 600;
+}
+
+.doneTitle {
+  font-size: 32px;
+}
+
+.doneText {
+  color: var(--body);
+}

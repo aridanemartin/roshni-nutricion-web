@@ -1,0 +1,61 @@
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 28px;
+}
+
+.icons {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.icons li {
+  flex: none;
+}
+
+.icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid var(--dark-line);
+  border-radius: 50%;
+  color: var(--paper);
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.icon svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.icon:hover {
+  border-color: var(--leaf);
+  background: var(--leaf);
+  color: var(--ink);
+}
+
+.icon:focus-visible {
+  outline-color: var(--leaf);
+}
+
+.handle {
+  color: var(--dark-mute);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.handle:hover {
+  color: var(--leaf);
+  text-decoration: underline;
+}

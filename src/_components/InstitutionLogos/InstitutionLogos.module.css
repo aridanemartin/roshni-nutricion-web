@@ -1,0 +1,30 @@
+.logos {
+  display: grid;
+  gap: 24px;
+  padding-block: 48px;
+  border-bottom: 1px solid var(--line);
+}
+
+.logos .eyebrow {
+  color: var(--mute);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px 40px;
+}
+
+.row img {
+  width: auto;
+  height: 48px;
+  filter: grayscale(1);
+  mix-blend-mode: multiply;
+  opacity: 0.75;
+}
+
+.row img.inverted {
+  filter: grayscale(1) invert(1);
+}

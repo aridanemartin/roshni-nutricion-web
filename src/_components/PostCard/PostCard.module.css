@@ -1,0 +1,196 @@
+.card,
+.featured {
+  text-decoration: none;
+}
+
+/* ---------- Card: "Imagen a sangre" ---------- */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  color: var(--paper);
+  isolation: isolate;
+}
+
+/* Dark scrim so the overlaid text stays legible */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgb(var(--ink-rgb) / 0) 30%,
+    rgb(var(--ink-rgb) / 0.92) 85%
+  );
+}
+
+.bg {
+  z-index: -2;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.card:hover .bg,
+.card:focus-visible .bg {
+  transform: scale(1.05);
+}
+
+/* Publisher tab: a flag flush with the card's top-left corner, cut into the
+   photo rather than floating over it. The square outer corners match the
+   card; only the inner corner (where the tab meets the photo) rounds off,
+   reading as a notch cut from the image instead of a chip stuck on top. */
+.tab {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding: 14px 20px 12px 18px;
+  background: var(--paper);
+  border-radius: 0 0 14px;
+  box-shadow: 2px 2px 10px -2px rgb(var(--ink-rgb) / 0.35);
+}
+
+.logo {
+  width: auto;
+  height: 20px;
+  filter: grayscale(1);
+  transition: filter 0.3s;
+}
+
+.card:hover .logo,
+.card:focus-visible .logo {
+  filter: none;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 24px;
+}
+
+.card h3 {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: clamp(24px, 2.4vw, 30px);
+  line-height: 1.12;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.card p {
+  display: -webkit-box;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  color: var(--dark-mute);
+  font-size: 14px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  transition:
+    max-height 0.35s,
+    opacity 0.35s;
+}
+
+.card:hover p,
+.card:focus-visible p {
+  max-height: 4.8em;
+  opacity: 1;
+}
+
+.card .more {
+  color: var(--leaf);
+}
+
+/* ---------- Featured (top of /blog) ---------- */
+.featured {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+}
+
+.featured .media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  background: var(--paper);
+}
+
+.featured .media img {
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.featured:hover .media img {
+  transform: scale(1.03);
+}
+
+.featured .body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.featured .source {
+  width: auto;
+  height: 26px;
+  filter: grayscale(1);
+  opacity: 0.7;
+}
+
+.featured h2 {
+  font-size: clamp(30px, 3.6vw, 48px);
+  line-height: 1.08;
+}
+
+.featured p {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--body);
+  font-size: 17px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.featured:hover h2 {
+  color: var(--leaf-dark);
+}
+
+.more {
+  color: var(--leaf-dark);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (hover: none) {
+  .card p {
+    max-height: 4.8em;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 860px) {
+  .card {
+    aspect-ratio: 4 / 5;
+  }
+
+  .featured {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover .bg,
+  .card:focus-visible .bg {
+    transform: none;
+  }
+}

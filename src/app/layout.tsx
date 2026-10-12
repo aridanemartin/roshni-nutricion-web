@@ -1,31 +1,42 @@
-/* eslint-disable react-refresh/only-export-components */
-import Nav from '@components/Nav/Nav'
+import type { Metadata, Viewport } from 'next'
+import { Gloock, Hanken_Grotesk as HankenGrotesk } from 'next/font/google'
 import {
-  Playfair_Display as PlayfairDisplay,
-  Source_Sans_3 as SourceSans3,
-} from 'next/font/google'
-import '@styles/global.scss'
-import Footer from '@components/Footer/Footer'
-import AriSignature from '@components/AriSignature/AriSignature'
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_URL,
+} from '@/content/site'
+import '@/app/globals.css'
 
-export const metadata = {
-  description:
-    '¡Bienvenidos al mundo de la nutrición consciente! Te invitamos a descubrir cómo nuestras soluciones personalizadas pueden mejorar tu salud y bienestar.',
-  title:
-    'Roshni Peswani | Nutricionista - Dietista en Las Palmas de Gran Canaria',
+const gloock = Gloock({
+  subsets: ['latin'],
+  variable: '--font-gloock',
+  weight: '400',
+})
+
+const hanken = HankenGrotesk({
+  subsets: ['latin'],
+  variable: '--font-hanken',
+})
+
+export const metadata: Metadata = {
+  applicationName: SITE_NAME,
+  authors: [{ name: 'Roshni Peswani', url: SITE_URL }],
+  category: 'Salud y nutrición',
+  creator: 'Roshni Peswani',
+  description: SITE_DESCRIPTION,
+  formatDetection: { telephone: false },
+  metadataBase: new URL(SITE_URL),
+  publisher: 'Roshni Peswani',
+  title: {
+    default: SITE_TITLE,
+    template: '%s | Roshni Peswani Nutricionista',
+  },
 }
 
-const playfairDisplay = PlayfairDisplay({
-  subsets: ['latin'],
-  variable: '--playfairDisplay',
-  weight: '400',
-})
-
-const sourceSans = SourceSans3({
-  subsets: ['latin'],
-  variable: '--sourceSans',
-  weight: '400',
-})
+export const viewport: Viewport = {
+  themeColor: '#1c2620',
+}
 
 export default function RootLayout({
   children,
@@ -33,13 +44,12 @@ export default function RootLayout({
   readonly children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={sourceSans.variable + ' ' + playfairDisplay.variable}>
-        <Nav />
-        {children}
-        <Footer />
-        <AriSignature />
-      </body>
+    <html
+      className={`${gloock.variable} ${hanken.variable}`}
+      data-scroll-behavior="smooth"
+      lang="es"
+    >
+      <body>{children}</body>
     </html>
   )
 }

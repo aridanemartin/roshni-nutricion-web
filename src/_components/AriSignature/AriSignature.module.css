@@ -1,0 +1,14 @@
+.signature {
+  color: var(--dark-mute);
+  font-size: 13px;
+}
+
+.signature a {
+  color: var(--paper);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signature a:hover {
+  color: var(--leaf);
+}

@@ -47,7 +47,11 @@ export default defineConfig([
       quotes: ['error', 'single'],
       'react-refresh/only-export-components': [
         'warn',
-        { allowConstantExport: true },
+        {
+          allowConstantExport: true,
+          // Next.js route segment exports
+          allowExportNames: ['metadata', 'viewport', 'generateMetadata'],
+        },
       ],
       'react/jsx-sort-props': 'error',
       'react/jsx-uses-react': 'off',

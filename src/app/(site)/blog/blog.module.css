@@ -1,0 +1,4 @@
+.featured {
+  padding-block: clamp(40px, 6vw, 72px);
+  border-bottom: 1px solid var(--line);
+}

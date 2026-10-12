@@ -1,0 +1,74 @@
+.quote {
+  max-width: 920px;
+  margin: 22px 0 0;
+}
+
+.quote blockquote {
+  min-height: 5.2em;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.2vw, 40px);
+  line-height: 1.22;
+}
+
+.quote blockquote::before,
+.quote blockquote::after {
+  color: var(--leaf-dark);
+}
+
+.quote blockquote::before {
+  content: '“';
+}
+
+.quote blockquote::after {
+  content: '”';
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.meta cite {
+  color: var(--mute);
+  font-size: 14px;
+  font-style: normal;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.meta cite a {
+  color: var(--leaf-dark);
+}
+
+.dots {
+  display: flex;
+  gap: 4px;
+}
+
+/* 11px dot inside a 28px hit area */
+.dots button {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.dots button::after {
+  position: absolute;
+  inset: 8.5px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  content: '';
+}
+
+.dots button[aria-pressed='true']::after {
+  background: var(--ink);
+}
