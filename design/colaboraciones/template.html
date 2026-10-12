@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colaboraciones — Prototipos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#eceee7; --paper:#f6f7f2; --ink:#1c2620; --body:#3a463e; --mute:#56685a;
+  --leaf:#8db56c; --leaf-dark:#4c7537; --line:#c9cfc2; --dark-line:#3c4a41; --dark-mute:#b9c4bb;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:Gloock,"Times New Roman",serif;font-weight:400;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:clamp(16px,4vw,48px)}
+.eyebrow{color:var(--leaf-dark);font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+
+/* ---- Prototype gallery chrome (not part of the design) ---- */
+.gallery-head{background:var(--ink);color:var(--paper);padding:clamp(28px,5vw,56px) 0}
+.gallery-head h1{font-size:clamp(30px,4vw,46px)}
+.gallery-head p{color:var(--dark-mute);max-width:62ch;margin-top:12px}
+.gallery-nav{position:sticky;top:0;z-index:20;background:var(--ink);border-bottom:1px solid var(--dark-line)}
+.gallery-nav .wrap{display:flex;flex-wrap:wrap;gap:6px;padding-block:10px}
+.gallery-nav a{color:var(--paper);text-decoration:none;font-size:13px;padding:6px 12px;border:1px solid var(--dark-line);border-radius:999px;transition:.2s}
+.gallery-nav a:hover{background:var(--leaf);border-color:var(--leaf);color:var(--ink)}
+
+.variant{padding-block:clamp(56px,8vw,96px);border-bottom:1px solid var(--line)}
+.variant__meta{max-width:1180px;margin-inline:auto;padding-inline:clamp(16px,4vw,48px);margin-bottom:28px}
+.variant__tag{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.variant__tag b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--paper);font-size:12px}
+.variant__meta h2{font-size:clamp(22px,3vw,30px);margin-top:10px}
+.variant__meta p{color:var(--body);max-width:70ch;margin-top:8px;font-size:15px}
+.variant__meta em{color:var(--ink);font-style:normal;font-weight:600}
+
+/* ============================================================
+   V1 — Franja editorial
+   ============================================================ */
+.v1__head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px}
+.v1__title{font-size:clamp(28px,3.4vw,42px);margin-top:12px}
+.v1__lead{color:var(--body);max-width:44ch;margin-top:10px}
+.v1__logos{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);align-items:center;
+  margin:40px 0 0;padding:0;border-block:1px solid var(--line)}
+.v1__logos li{display:grid;place-items:center;padding:34px 18px}
+.v1__logos li+li{border-left:1px solid var(--line)}
+.v1__logos img{width:auto;filter:grayscale(1);opacity:.55;transition:filter .25s,opacity .25s,transform .25s}
+.v1__logos li:hover img{filter:none;opacity:1;transform:scale(1.03)}
+
+/* ============================================================
+   V2 — Rejilla de tarjetas
+   ============================================================ */
+.v2{background:var(--paper)}
+.v2__head{text-align:center;max-width:60ch;margin:0 auto 44px}
+.v2__head .v1__title{margin-top:12px}
+.v2__head p{color:var(--body);margin-top:12px}
+.v2__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,20px)}
+.v2__card{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+  min-height:190px;padding:30px 22px;border:1px solid var(--line);background:var(--ground);text-decoration:none;
+  transition:border-color .25s,transform .25s,box-shadow .25s,background .25s}
+.v2__card:hover{border-color:var(--leaf-dark);transform:translateY(-3px);box-shadow:0 16px 34px -22px rgba(28,38,32,.5);background:#fff}
+.v2__card img{width:auto;filter:grayscale(1);opacity:.6;transition:filter .25s,opacity .25s}
+.v2__card:hover img{filter:none;opacity:1}
+.v2__cat{position:absolute;top:14px;left:16px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.v2__name{font-size:15px;font-weight:600;color:var(--ink)}
+
+/* ============================================================
+   V3 — Marquesina
+   ============================================================ */
+.v3{background:var(--paper);overflow:hidden}
+.v3__head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:36px}
+.v3__head p{color:var(--body);max-width:46ch;margin-top:10px}
+.v3__marquee{position:relative;padding-block:34px;border-block:1px solid var(--line);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.v3__row{display:flex;width:max-content;gap:clamp(48px,7vw,104px);align-items:center;animation:marquee 26s linear infinite}
+.v3__marquee:hover .v3__row{animation-play-state:paused}
+.v3__row img{width:auto;filter:grayscale(1);opacity:.55;transition:opacity .25s,filter .25s}
+.v3__row img:hover{opacity:1;filter:none}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============================================================
+   V4 — Banda oscura
+   ============================================================ */
+.v4{background:var(--ink);color:var(--paper)}
+.v4__inner{text-align:center}
+.v4 .eyebrow{color:var(--leaf)}
+.v4__title{font-size:clamp(28px,3.6vw,46px);margin-top:14px;color:var(--paper)}
+.v4__lead{color:var(--dark-mute);max-width:52ch;margin:14px auto 0}
+.v4__logos{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,18px);
+  max-width:960px;margin:52px auto 0;padding:0}
+.v4__logos li{display:grid;place-items:center;min-height:126px;padding:24px 18px;
+  background:var(--paper);border:1px solid var(--dark-line);transition:transform .25s,box-shadow .25s}
+.v4__logos li:hover{transform:translateY(-3px);box-shadow:0 20px 40px -26px rgba(0,0,0,.8)}
+.v4__logos img{width:auto;filter:grayscale(1);opacity:.62;transition:opacity .25s,filter .25s}
+.v4__logos li:hover img{opacity:1;filter:none}
+.v4__rule{width:56px;height:2px;background:var(--leaf);margin:56px auto 0}
+
+/* ============================================================
+   V5 — Prensa destacada
+   ============================================================ */
+.v5{background:var(--paper)}
+.v5__head{max-width:52ch;margin-bottom:44px}
+.v5__grid{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(24px,4vw,56px);align-items:start}
+.v5__feature{border:1px solid var(--line);background:var(--ground);padding:clamp(24px,3vw,40px);
+  display:flex;flex-direction:column;gap:22px}
+.v5__feature img{width:auto;height:30px;filter:grayscale(1);opacity:.7}
+.v5__quote{font-family:Gloock,serif;font-size:clamp(22px,2.6vw,32px);line-height:1.25;color:var(--ink)}
+.v5__quote span{color:var(--leaf-dark)}
+.v5__link{align-self:flex-start;font-weight:600;font-size:15px;text-decoration:none;color:var(--ink);
+  border-bottom:2px solid var(--leaf);padding-bottom:3px;transition:.2s}
+.v5__link:hover{color:var(--leaf-dark)}
+.v5__list{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.v5__list li{border-bottom:1px solid var(--line)}
+.v5__list a{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;padding:20px 4px;text-decoration:none;transition:padding .2s}
+.v5__list a:hover{padding-left:12px}
+.v5__list img{width:auto;filter:grayscale(1);opacity:.55;transition:filter .25s,opacity .25s}
+.v5__list a:hover img{filter:none;opacity:1}
+.v5__list .pub{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:3px}
+.v5__list .ttl{font-size:15px;color:var(--ink);line-height:1.35}
+.v5__list .arrow{color:var(--leaf-dark);font-size:20px}
+
+@media (max-width:860px){
+  .v1__logos{grid-template-columns:repeat(2,1fr)}
+  .v1__logos li:nth-child(3){border-left:none}
+  .v1__logos li:nth-child(n+3){border-top:1px solid var(--line)}
+  .v2__grid{grid-template-columns:repeat(2,1fr)}
+  .v4__logos{grid-template-columns:repeat(2,1fr)}
+  .v5__grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .v3__row{animation:none;flex-wrap:wrap;width:auto;justify-content:center;gap:40px}
+}
+</style>
+</head>
+<body>
+
+<header class="gallery-head">
+  <div class="wrap">
+    <h1>Colaboraciones — 5 prototipos</h1>
+    <p>Cinco direcciones para rediseñar la franja de colaboraciones de la home. Todas usan los logos reales y los tokens de color y tipografía del sitio (verde mineral, tinta verde, hoja). Elige una o combina ideas.</p>
+  </div>
+</header>
+<nav class="gallery-nav">
+  <div class="wrap">
+    <a href="#v1">1 · Franja editorial</a>
+    <a href="#v2">2 · Rejilla de tarjetas</a>
+    <a href="#v3">3 · Marquesina</a>
+    <a href="#v4">4 · Banda oscura</a>
+    <a href="#v5">5 · Prensa destacada</a>
+  </div>
+</nav>
+
+<!-- ================= V1 ================= -->
+<section class="variant" id="v1">
+  <div class="variant__meta">
+    <span class="variant__tag"><b>1</b> Prototipo</span>
+    <h2>Franja editorial</h2>
+    <p>Mantiene el espíritu actual (logos en fila) pero con más jerarquía: titular, subtítulo y logos más grandes separados por líneas finas. <em>Cambio mínimo y elegante.</em></p>
+  </div>
+  <div class="v1">
+    <div class="wrap">
+      <div class="v1__head">
+        <div>
+          <span class="eyebrow">Colaboraciones</span>
+          <h3 class="v1__title">Dónde he publicado</h3>
+          <p class="v1__lead">Artículos de divulgación y apariciones en medios de comunicación.</p>
+        </div>
+      </div>
+      <ul class="v1__logos">
+        <li><img alt="Cadena SER" src="__LOGO_SER__" style="height:54px"></li>
+        <li><img alt="Canarias7" src="__LOGO_C7__" style="height:30px"></li>
+        <li><img alt="La Provincia" src="__LOGO_PROV__" style="height:27px"></li>
+        <li><img alt="Spar" src="__LOGO_SPAR__" style="height:30px"></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= V2 ================= -->
+<section class="variant" id="v2">
+  <div class="variant__meta">
+    <span class="variant__tag"><b>2</b> Prototipo</span>
+    <h2>Rejilla de tarjetas</h2>
+    <p>Cada colaborador en una tarjeta con su categoría (Radio, Prensa…) y su nombre. Estructura de “partners”, con hover que da vida. <em>Más peso visual y sensación de respaldo.</em></p>
+  </div>
+  <div class="v2">
+    <div class="wrap" style="padding-block:clamp(48px,7vw,84px)">
+      <div class="v2__head">
+        <span class="eyebrow">Colaboraciones</span>
+        <h3 class="v1__title">Medios con los que colaboro</h3>
+        <p>Divulgación en radio, prensa y revistas especializadas.</p>
+      </div>
+      <div class="v2__grid">
+        <a class="v2__card" href="#"><span class="v2__cat">Radio</span><img alt="Cadena SER" src="__LOGO_SER__" style="height:52px"><span class="v2__name">Cadena SER</span></a>
+        <a class="v2__card" href="#"><span class="v2__cat">Prensa</span><img alt="Canarias7" src="__LOGO_C7__" style="height:28px"><span class="v2__name">Canarias7</span></a>
+        <a class="v2__card" href="#"><span class="v2__cat">Prensa</span><img alt="La Provincia" src="__LOGO_PROV__" style="height:25px"><span class="v2__name">La Provincia</span></a>
+        <a class="v2__card" href="#"><span class="v2__cat">Revista</span><img alt="Spar" src="__LOGO_SPAR__" style="height:28px"><span class="v2__name">Spar Natural</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= V3 ================= -->
+<section class="variant" id="v3">
+  <div class="variant__meta">
+    <span class="variant__tag"><b>3</b> Prototipo</span>
+    <h2>Marquesina</h2>
+    <p>Franja clara con los logos desfilando en bucle infinito y máscara en los bordes. Aporta movimiento y modernidad sin recargar. <em>Los logos en gris, en color al pasar el cursor.</em></p>
+  </div>
+  <div class="v3">
+    <div class="wrap" style="padding-block:clamp(48px,7vw,84px) 0">
+      <div class="v3__head">
+        <div>
+          <span class="eyebrow">Colaboraciones</span>
+          <h3 class="v1__title">Apariciones en medios</h3>
+          <p>Radio, prensa y revistas donde comparto divulgación nutricional.</p>
+        </div>
+      </div>
+    </div>
+    <div class="v3__marquee" style="padding-bottom:clamp(48px,7vw,84px)">
+      <div class="v3__row" style="padding-block:30px">
+        <img alt="Cadena SER" src="__LOGO_SER__" style="height:56px">
+        <img alt="Canarias7" src="__LOGO_C7__" style="height:32px">
+        <img alt="La Provincia" src="__LOGO_PROV__" style="height:28px">
+        <img alt="Spar" src="__LOGO_SPAR__" style="height:32px">
+        <img alt="" aria-hidden="true" src="__LOGO_SER__" style="height:56px">
+        <img alt="" aria-hidden="true" src="__LOGO_C7__" style="height:32px">
+        <img alt="" aria-hidden="true" src="__LOGO_PROV__" style="height:28px">
+        <img alt="" aria-hidden="true" src="__LOGO_SPAR__" style="height:32px">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= V4 ================= -->
+<section class="variant" id="v4">
+  <div class="variant__meta">
+    <span class="variant__tag"><b>4</b> Prototipo</span>
+    <h2>Banda oscura</h2>
+    <p>Fondo tinta a lo ancho de la página con los logos sobre tarjetas claras. Crea una pausa visual fuerte entre el blog y el pie. <em>Protagonismo y elegancia.</em></p>
+  </div>
+  <div class="v4">
+    <div class="wrap" style="padding-block:clamp(56px,8vw,96px)">
+      <div class="v4__inner">
+        <span class="eyebrow">Colaboraciones</span>
+        <h3 class="v4__title">Medios que cuentan conmigo</h3>
+        <p class="v4__lead">Divulgación nutricional en radio, prensa y revistas de Canarias.</p>
+        <ul class="v4__logos">
+          <li><img alt="Cadena SER" src="__LOGO_SER__" style="height:46px"></li>
+          <li><img alt="Canarias7" src="__LOGO_C7__" style="height:26px"></li>
+          <li><img alt="La Provincia" src="__LOGO_PROV__" style="height:23px"></li>
+          <li><img alt="Spar" src="__LOGO_SPAR__" style="height:26px"></li>
+        </ul>
+        <div class="v4__rule"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= V5 ================= -->
+<section class="variant" id="v5">
+  <div class="variant__meta">
+    <span class="variant__tag"><b>5</b> Prototipo</span>
+    <h2>Prensa destacada</h2>
+    <p>Convierte las colaboraciones en contenido: un artículo destacado con cita y logo, junto a una lista de apariciones con enlaces. <em>Máximo aprovechamiento SEO y de autoridad.</em></p>
+  </div>
+  <div class="v5">
+    <div class="wrap" style="padding-block:clamp(48px,7vw,84px)">
+      <div class="v5__head">
+        <span class="eyebrow">Colaboraciones</span>
+        <h3 class="v1__title">En prensa</h3>
+        <p style="color:var(--body);margin-top:12px">Artículos y apariciones en medios donde comparto consejos de nutrición.</p>
+      </div>
+      <div class="v5__grid">
+        <article class="v5__feature">
+          <img alt="La Provincia" src="__LOGO_PROV__" style="height:28px">
+          <p class="v5__quote">“No hay dieta que sea saludable, rápida y sostenible.” <span>La clave está en cambiar hábitos a largo plazo.</span></p>
+          <a class="v5__link" href="#">Leer en La Provincia →</a>
+        </article>
+        <ul class="v5__list">
+          <li><a href="#"><span><span class="pub">Cadena SER</span><span class="ttl">Sección Nutripedia: el síndrome metabólico</span></span><span class="arrow">→</span></a></li>
+          <li><a href="#"><span><span class="pub">Canarias7</span><span class="ttl">Alimentos naturales y saciantes para evitar picar entre horas</span></span><span class="arrow">→</span></a></li>
+          <li><a href="#"><span><span class="pub">Spar Natural</span><span class="ttl">Beneficios de una dieta antiinflamatoria</span></span><span class="arrow">→</span></a></li>
+          <li><a href="#"><span><span class="pub">La Provincia</span><span class="ttl">Siete claves para una alimentación saludable</span></span><span class="arrow">→</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

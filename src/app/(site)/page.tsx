@@ -1,11 +1,6 @@
 import Image from 'next/image'
 import heroPicture from '@assets/pictures/personal/roshniVertical.webp'
-import {
-  BOOKING_INTRO,
-  COLLABORATORS,
-  POSTS,
-  ROUTES,
-} from '@/content/site'
+import { BOOKING_INTRO, POSTS, ROUTES } from '@/content/site'
 import { Button } from '@components/Button/Button'
 import ClinicList from '@components/ClinicList/ClinicList'
 import Credentials from '@components/Credentials/Credentials'
@@ -102,18 +97,6 @@ export default function Home() {
           <div className={styles.posts}>
             {POSTS.slice(0, 3).map((post) => (
               <PostCard key={post.id} post={post} />
-            ))}
-          </div>
-          <div className={styles.collab}>
-            <span className="eyebrow">Colaboraciones</span>
-            {Object.entries(COLLABORATORS).map(([src, logo]) => (
-              <Image
-                alt={logo.name}
-                height={logo.height}
-                key={src}
-                src={src}
-                width={logo.width}
-              />
             ))}
           </div>
         </div>
