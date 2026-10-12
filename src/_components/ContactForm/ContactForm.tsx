@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import '@components/ContactForm/ContactForm.scss'
 import Input from '@components/Input/Input'
 import Textarea from '@components/Textarea/Textarea'
@@ -11,6 +11,8 @@ const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [isEmailSent, setIsEmailSent] = useState(false)
   const [isFatalError, setIsFatalError] = useState(false)
+  const startedAt = useRef(Date.now())
+  const honeypot = useRef<HTMLInputElement>(null)
   const [formData, setFormData] = useState({
     email: '',
     message: '',
@@ -62,7 +64,11 @@ const ContactForm = () => {
     setIsLoading(true)
     try {
       const response = await fetch('/api/send-email', {
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          startedAt: startedAt.current,
+          website: honeypot.current?.value ?? '',
+        }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -207,6 +213,16 @@ const ContactForm = () => {
         placeholder="email@ejemplo.com"
         type="email"
         value={formData.email}
+      />
+      {/* Honeypot: hidden from people, bots fill it in */}
+      <input
+        aria-hidden="true"
+        autoComplete="off"
+        className="contact-form__honeypot"
+        name="website"
+        ref={honeypot}
+        tabIndex={-1}
+        type="text"
       />
       <Textarea
         error={formErrors.message}
