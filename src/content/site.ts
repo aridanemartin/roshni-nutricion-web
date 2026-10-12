@@ -84,19 +84,6 @@ export const CLINICS: Clinic[] = [
   },
 ]
 
-export const CREDENTIALS = [
-  { detail: 'Nutrición Humana y Dietética', title: 'Universidad Complutense' },
-  { detail: 'Experto Universitario', title: 'Nutrición Hospitalaria' },
-  {
-    detail: 'Actualización en CINUSA, Madrid',
-    title: 'Patologías Digestivas',
-  },
-  {
-    detail: 'Universidad CEU Cardenal Herrera',
-    title: 'Máster de Microbiota',
-  },
-]
-
 export const SERVICES = [
   {
     icon: stomachIcon,

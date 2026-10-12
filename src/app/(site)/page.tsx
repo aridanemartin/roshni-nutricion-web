@@ -3,7 +3,6 @@ import heroPicture from '@assets/pictures/personal/roshniVertical.webp'
 import { BOOKING_INTRO, POSTS, ROUTES } from '@/content/site'
 import { Button } from '@components/Button/Button'
 import ClinicList from '@components/ClinicList/ClinicList'
-import Credentials from '@components/Credentials/Credentials'
 import PostCard from '@components/PostCard/PostCard'
 import ServicesIndex from '@components/ServicesIndex/ServicesIndex'
 import styles from '@/app/(site)/home.module.css'
@@ -44,7 +43,6 @@ export default function Home() {
             <figcaption>Roshni Peswani · Dietista-Nutricionista</figcaption>
           </figure>
         </section>
-        <Credentials />
       </div>
 
       <section className="section" id="servicios">
