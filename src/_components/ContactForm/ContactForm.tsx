@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '@components/ContactForm/ContactForm.scss'
 import Input from '@components/Input/Input'
 import Textarea from '@components/Textarea/Textarea'
@@ -11,8 +11,12 @@ const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [isEmailSent, setIsEmailSent] = useState(false)
   const [isFatalError, setIsFatalError] = useState(false)
-  const startedAt = useRef(Date.now())
+  const startedAt = useRef(0)
   const honeypot = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    startedAt.current = Date.now()
+  }, [])
   const [formData, setFormData] = useState({
     email: '',
     message: '',

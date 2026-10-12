@@ -6,7 +6,7 @@ import { Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import '@components/Carousel/Carousel.scss'
-import useViewportSize from 'src/_hooks/useViewportSize'
+import useViewportSize from '@hooks/useViewportSize'
 import Image from 'next/image'
 
 export interface CarouselProps {

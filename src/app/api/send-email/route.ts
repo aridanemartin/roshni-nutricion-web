@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
-import GraciasPorContactar from 'src/_emails/gracias-por-contactar';
-import automaticResponseEmail from 'src/_emails/mensaje-interno';
+import GraciasPorContactar from '@/_emails/gracias-por-contactar';
+import automaticResponseEmail from '@/_emails/mensaje-interno';
 
 // Real users need at least a few seconds to fill the form
 const MIN_FILL_TIME_MS = 3000;

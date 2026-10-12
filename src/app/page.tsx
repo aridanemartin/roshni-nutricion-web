@@ -4,7 +4,7 @@ import Headline from '@components/Headline/Headline'
 import HeroBanner from '@components/HeroBanner/HeroBanner'
 import PictureSection from '@components/PictureSection/PictureSection'
 import RoshniProfilePicture from '@assets/pictures/personal/roshniProfile.jpg'
-import dynamic from 'next/dynamic'
+import Carousel from '@components/Carousel/ClientCarousel'
 import stomachIcon from '@assets/icons/stomach.webp'
 import intoleranceIcon from '@assets/icons/intolerance.webp'
 import autoinmuneIcon from '@assets/icons/immunity.webp'
@@ -12,11 +12,6 @@ import metabolicIcon from '@assets/icons/diabetes.webp'
 import bodyCompositionIcon from '@assets/icons/fat.webp'
 import { Button } from '@components/Button/Button'
 import RotatingReviews from '@components/RotatingReviews/RotatingReviews'
-
-const Carousel = dynamic(() => import('@components/Carousel/Carousel'), {
-  loading: () => <p>Loading...</p>,
-  ssr: false,
-})
 
 const services = [
   {

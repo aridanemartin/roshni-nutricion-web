@@ -1,15 +1,15 @@
 import Image from 'next/image'
 import React from 'react'
-import imageUrlBuilder from '@sanity/image-url'
+import { createImageUrlBuilder } from '@sanity/image-url'
 
 import '@components/SanityBlock/SanityBlock.scss'
 import Link from 'next/link'
 
 import { getYoutubeVideoId } from '@utils/youtubeHelpers'
-import { sanityClient } from 'src/sanity/utils/sanity-querys'
+import { sanityClient } from '@/sanity/utils/sanity-querys'
 
 function SanityBlock({ sanityContent }) {
-  const builder = imageUrlBuilder(sanityClient)
+  const builder = createImageUrlBuilder(sanityClient)
   function imageUrlFor(source) {
     return builder.image(source)
   }

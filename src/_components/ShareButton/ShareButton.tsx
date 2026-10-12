@@ -1,24 +1,22 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 import '@components/ShareButton/ShareButton.scss'
 import {
-  FacebookIcon,
+  FacebookLegacyIcon,
   FacebookShareButton,
-  TwitterShareButton,
-  WhatsappIcon,
+  WhatsappLegacyIcon,
   WhatsappShareButton,
-  XIcon,
+  XLegacyIcon,
+  XShareButton,
 } from 'react-share'
 
 export const ShareButton = () => {
-  const [currentUrl, setCurrentUrl] = useState('')
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setCurrentUrl(window.location.href)
-    }
-  }, [])
+  const currentUrl = useSyncExternalStore(
+    () => () => {},
+    () => window.location.href,
+    () => '',
+  )
 
   return (
     <>
@@ -26,13 +24,13 @@ export const ShareButton = () => {
         <span className="shareButton__text">Compartir</span>
         <div className="container">
           <FacebookShareButton url={currentUrl}>
-            <FacebookIcon round size={32} />
+            <FacebookLegacyIcon round size={32} />
           </FacebookShareButton>
-          <TwitterShareButton url={currentUrl}>
-            <XIcon round size={32} />
-          </TwitterShareButton>
+          <XShareButton url={currentUrl}>
+            <XLegacyIcon round size={32} />
+          </XShareButton>
           <WhatsappShareButton url={currentUrl}>
-            <WhatsappIcon round size={32} />
+            <WhatsappLegacyIcon round size={32} />
           </WhatsappShareButton>
         </div>
       </div>
