@@ -24,7 +24,7 @@
 
 .logo {
   width: auto;
-  height: 64px;
+  height: 44px;
   justify-self: end;
 }
 
@@ -73,5 +73,12 @@
   .logo {
     order: -1;
     justify-self: start;
+    height: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 32px;
   }
 }

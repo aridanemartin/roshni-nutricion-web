@@ -24,7 +24,7 @@ export default function SiteFooter() {
             <Image
               alt="Roshni Peswani · Dietista-Nutricionista"
               className={styles.logo}
-              sizes="240px"
+              sizes="180px"
               src={logo}
             />
           </div>

@@ -28,7 +28,7 @@
 
 .logo {
   width: auto;
-  height: 52px;
+  height: 44px;
 }
 
 .links {
@@ -70,13 +70,13 @@
   }
 
   .logo {
-    height: 44px;
+    height: 38px;
   }
 }
 
 @media (max-width: 480px) {
   .logo {
-    height: 36px;
+    height: 32px;
   }
 
   .actions {
